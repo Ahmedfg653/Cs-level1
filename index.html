@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بوابة الاستعلام عن السكاشن والمجموعات | معهد المستقبل العالي</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-hover: #1d4ed8;
+      --primary-light: #eff6ff;
+      --accent: #0284c7;
+      --accent-light: #e0f2fe;
+      --g1-color: #059669;
+      --g1-bg: #ecfdf5;
+      --g2-color: #7c3aed;
+      --g2-bg: #f5f3ff;
+      --sec-color: #d97706;
+      --sec-bg: #fffbeb;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+      --shadow-lg: 0 10px 25px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg: #090d16;
+      --card-bg: #111827;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border: #1f293d;
+      --primary-light: #172554;
+      --accent-light: #082f49;
+      --g1-bg: #064e3b;
+      --g2-bg: #4c1d95;
+      --sec-bg: #78350f;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+      --shadow-md: 0 4px 6px rgba(0,0,0,0.5);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.6);
+      --shadow-xl: 0 20px 25px rgba(0,0,0,0.7);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Cairo", "Tajawal", Tahoma, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Top Announcement Bar */
+    .top-bar {
+      background: linear-gradient(135deg, #1e3a8a, #0369a1);
+      color: #ffffff;
+      padding: 8px 16px;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .theme-toggle-btn {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+    .theme-toggle-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* Header Container */
+    header {
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .inst-info {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .inst-logo {
+      width: 68px;
+      height: 68px;
+      background: linear-gradient(135deg, #1e3a8a, #0284c7);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 32px;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+    }
+
+    .inst-titles h1 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    [data-theme="dark"] .inst-titles h1 {
+      color: #60a5fa;
+    }
+
+    .inst-titles h2 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .academic-meta {
+      background: var(--primary-light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 10px 18px;
+      text-align: right;
+    }
+    .academic-meta .term {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    [data-theme="dark"] .academic-meta .term {
+      color: #93c5fd;
+    }
+    .academic-meta .dept {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* Main Container */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 16px 60px;
+      flex: 1;
+      width: 100%;
+    }
+
+    /* Search Section */
+    .search-hero {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .search-hero h2 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .search-hero p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto 24px;
+    }
+
+    .search-box-card {
+      background: var(--card-bg);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      max-width: 720px;
+      margin: 0 auto;
+      box-shadow: var(--shadow-xl);
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .search-box-card:focus-within {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15), var(--shadow-xl);
+    }
+
+    .search-input-group {
+      display: flex;
+      gap: 12px;
+      position: relative;
+    }
+
+    .search-input-wrap {
+      flex: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 16px;
+      color: var(--text-muted);
+      pointer-events: none;
+      font-size: 1.25rem;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 16px 52px 16px 44px;
+      font-size: 1.1rem;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--bg);
+      color: var(--text);
+      outline: none;
+      transition: var(--transition);
+    }
+    .search-input:focus {
+      border-color: var(--accent);
+      background: var(--card-bg);
+    }
+
+    .clear-btn {
+      position: absolute;
+      left: 14px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: none;
+      padding: 4px;
+      border-radius: 50%;
+    }
+    .clear-btn:hover {
+      color: var(--text);
+      background: var(--border);
+    }
+
+    .search-submit-btn {
+      padding: 0 32px;
+      background: linear-gradient(135deg, #1e3a8a, #0284c7);
+      color: #ffffff;
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+      white-space: nowrap;
+    }
+    .search-submit-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(2, 132, 199, 0.4);
+    }
+    .search-submit-btn:active {
+      transform: translateY(1px);
+    }
+
+    /* Search Suggestions Dropdown */
+    .suggestions-list {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      left: 0;
+      margin-top: 8px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      max-height: 280px;
+      overflow-y: auto;
+      z-index: 50;
+      display: none;
+      list-style: none;
+    }
+
+    .suggestion-item {
+      padding: 12px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      border-bottom: 1px solid var(--border);
+      transition: var(--transition);
+      text-align: right;
+    }
+    .suggestion-item:last-child {
+      border-bottom: none;
+    }
+    .suggestion-item:hover, .suggestion-item.active {
+      background: var(--primary-light);
+    }
+    .suggestion-name {
+      font-weight: 600;
+      color: var(--text);
+    }
+    .suggestion-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .suggestion-code {
+      font-family: monospace;
+      background: var(--border);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+
+    /* Quick helper badges */
+    .quick-examples {
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .quick-chip {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: var(--transition);
+      color: var(--text);
+    }
+    .quick-chip:hover {
+      background: var(--primary-light);
+      border-color: var(--accent);
+      color: var(--primary);
+    }
+
+    /* Result Card Styles */
+    .result-section {
+      display: none;
+      margin-top: 36px;
+      animation: fadeIn 0.4s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .student-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-xl);
+      overflow: hidden;
+      margin-bottom: 32px;
+      position: relative;
+    }
+
+    .card-top-banner {
+      background: linear-gradient(135deg, #1e3a8a, #0369a1);
+      color: white;
+      padding: 20px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .card-top-banner .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .card-body {
+      padding: 32px 28px;
+    }
+
+    .student-header-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-bottom: 2px dashed var(--border);
+      padding-bottom: 24px;
+      margin-bottom: 28px;
+    }
+
+    .student-identity h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    .code-badge-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: var(--radius-md);
+      font-family: monospace;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    [data-theme="dark"] .code-badge-wrap {
+      color: #93c5fd;
+    }
+
+    .copy-code-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      padding: 2px 6px;
+      border-radius: 4px;
+      transition: var(--transition);
+      font-size: 0.85rem;
+    }
+    .copy-code-btn:hover {
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    /* Main High-Impact Badges: Group & Section */
+    .assignments-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .assignment-box {
+      border-radius: var(--radius-md);
+      padding: 22px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      border: 1.5px solid transparent;
+      transition: var(--transition);
+    }
+
+    .assignment-box.group-box {
+      background: var(--g1-bg);
+      border-color: rgba(5, 150, 105, 0.3);
+    }
+    .assignment-box.group-box.is-g2 {
+      background: var(--g2-bg);
+      border-color: rgba(124, 58, 237, 0.3);
+    }
+
+    .assignment-box.sec-box {
+      background: var(--sec-bg);
+      border-color: rgba(217, 119, 6, 0.3);
+    }
+
+    .box-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .group-box .box-icon {
+      background: var(--g1-color);
+      color: white;
+    }
+    .group-box.is-g2 .box-icon {
+      background: var(--g2-color);
+      color: white;
+    }
+    .sec-box .box-icon {
+      background: var(--sec-color);
+      color: white;
+    }
+
+    .box-texts {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .box-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .box-value {
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+
+    .group-box .box-value {
+      color: var(--g1-color);
+    }
+    .group-box.is-g2 .box-value {
+      color: var(--g2-color);
+    }
+    .sec-box .box-value {
+      color: var(--sec-color);
+    }
+
+    /* Card Actions (Print / Copy / Share) */
+    .card-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .action-btn {
+      padding: 10px 18px;
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+    }
+    .action-btn:hover {
+      background: var(--card-bg);
+      border-color: var(--text-muted);
+    }
+    .action-btn.primary-action {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    .action-btn.primary-action:hover {
+      background: var(--primary-hover);
+    }
+
+    /* Multiple Results List */
+    .multi-results-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 30px;
+    }
+
+    .multi-results-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--primary);
+    }
+    [data-theme="dark"] .multi-results-card h3 {
+      color: #60a5fa;
+    }
+
+    .results-table-wrap {
+      overflow-x: auto;
+    }
+
+    .results-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: right;
+    }
+
+    .results-table th {
+      background: var(--bg);
+      padding: 12px 16px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      border-bottom: 2px solid var(--border);
+    }
+
+    .results-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+
+    .results-table tr:hover td {
+      background: var(--primary-light);
+    }
+
+    .select-student-btn {
+      padding: 6px 14px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    .select-student-btn:hover {
+      background: var(--primary);
+    }
+
+    /* Schedule Section */
+    .schedule-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-lg);
+      padding: 28px;
+      margin-top: 32px;
+    }
+
+    .schedule-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .schedule-header h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--primary);
+    }
+    [data-theme="dark"] .schedule-header h3 {
+      color: #60a5fa;
+    }
+
+    .day-filter-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .day-tab {
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .day-tab:hover {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+    .day-tab.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .schedule-item {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border-right: 4px solid var(--accent);
+      transition: var(--transition);
+    }
+    .schedule-item:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .schedule-item.badge-lec {
+      border-right-color: #2563eb;
+    }
+    .schedule-item.badge-lab {
+      border-right-color: #059669;
+    }
+    .schedule-item.badge-sec {
+      border-right-color: #d97706;
+    }
+
+    .item-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .item-day {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--primary);
+    }
+    [data-theme="dark"] .item-day {
+      color: #93c5fd;
+    }
+
+    .item-time {
+      font-family: monospace;
+      font-weight: 700;
+      font-size: 0.85rem;
+      background: var(--card-bg);
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      direction: ltr;
+    }
+
+    .item-subject {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .item-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .item-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .type-pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: var(--border);
+      width: fit-content;
+    }
+    .badge-lec .type-pill {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+    .badge-lab .type-pill {
+      background: #d1fae5;
+      color: #065f46;
+    }
+    .badge-sec .type-pill {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    /* Directory / Stats Section */
+    .directory-section {
+      margin-top: 48px;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .stat-number {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    [data-theme="dark"] .stat-number {
+      color: #60a5fa;
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .section-pills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .sec-filter-btn {
+      padding: 10px 18px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      color: var(--text);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sec-filter-btn:hover {
+      border-color: var(--accent);
+      background: var(--primary-light);
+    }
+    .sec-filter-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* Empty state */
+    .not-found-box {
+      text-align: center;
+      padding: 40px 20px;
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      border: 1.5px dashed var(--border);
+      display: none;
+    }
+    .not-found-icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+    .not-found-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .not-found-desc {
+      color: var(--text-muted);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #0f172a;
+      color: white;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-xl);
+      z-index: 1000;
+      opacity: 0;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--card-bg);
+      border-top: 1px solid var(--border);
+      padding: 24px 20px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* Print Stylesheet */
+    @media print {
+      body {
+        background: white !important;
+        color: black !important;
+      }
+      .top-bar, header, .search-hero, .search-box-card, .card-actions, .day-filter-tabs, .directory-section, footer {
+        display: none !important;
+      }
+      main {
+        padding: 0 !important;
+        max-width: 100% !important;
+      }
+      .student-card {
+        border: 2px solid #000 !important;
+        box-shadow: none !important;
+        page-break-after: avoid;
+      }
+      .card-top-banner {
+        background: #1e3a8a !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .assignment-box {
+        border: 1px solid #ccc !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .schedule-card {
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+        margin-top: 20px !important;
+        page-break-before: auto;
+      }
+      .schedule-item {
+        break-inside: avoid;
+        border: 1px solid #ddd !important;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .inst-info {
+        gap: 12px;
+      }
+      .inst-logo {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+      }
+      .inst-titles h1 {
+        font-size: 1.1rem;
+      }
+      .search-hero h2 {
+        font-size: 1.45rem;
+      }
+      .search-input-group {
+        flex-direction: column;
+      }
+      .search-submit-btn {
+        width: 100%;
+        padding: 14px;
+        justify-content: center;
+      }
+      .card-body {
+        padding: 20px 16px;
+      }
+      .student-header-info {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div>معهد المستقبل العالي للدراسات التكنولوجية المتخصصة - منصة الطلاب الإلكترونية</div>
+    <button class="theme-toggle-btn" id="themeToggle" onclick="toggleTheme()">
+      <span id="themeIcon">🌙</span>
+      <span id="themeText">الوضع الليلي</span>
+    </button>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <div class="inst-info">
+        <div class="inst-logo">🎓</div>
+        <div class="inst-titles">
+          <h1>معهد المستقبل العالي للدراسات التكنولوجية المتخصصة</h1>
+          <h2>قسم علوم الحاسب - الفرقة الأولى (First Level of CS Department)</h2>
+        </div>
+      </div>
+      <div class="academic-meta">
+        <div class="term">العام الجامعي 2026 - 2027</div>
+        <div class="dept">الفصل الدراسي الأول | معتمد من وزارة التعليم العالي</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main>
+    <!-- Search Hero & Box -->
+    <div class="search-hero">
+      <h2>استعلام عن السيكشن والمجموعة والجدول الدراسي</h2>
+      <p>اكتب اسمك بالكامل أو كود الطالب للبحث الفوري عن بياناتك الأكاديمية وجدول محاضراتك وسكاشنك الأسبوعية</p>
+      
+      <div class="search-box-card">
+        <div class="search-input-group">
+          <div class="search-input-wrap">
+            <span class="search-icon">🔍</span>
+            <input 
+              type="text" 
+              id="searchInput" 
+              class="search-input" 
+              placeholder="اكتب الاسم بالكامل أو كود الطالب (مثال: 420260098 أو أحمد محمد)..." 
+              autocomplete="off"
+            />
+            <button class="clear-btn" id="clearBtn" onclick="clearSearch()" title="مسح">✕</button>
+            <ul class="suggestions-list" id="suggestionsList"></ul>
+          </div>
+          <button class="search-submit-btn" onclick="executeSearch()">
+            <span>بحث</span>
+            <span>↵</span>
+          </button>
+        </div>
+
+        <div class="quick-examples">
+          <span>أمثلة سريعة للتجربة:</span>
+          <span class="quick-chip" onclick="quickFill('420260098')">كود: 420260098</span>
+          <span class="quick-chip" onclick="quickFill('420260792')">كود: 420260792</span>
+          <span class="quick-chip" onclick="quickFill('زياد وليد')">اسم: زياد وليد</span>
+          <span class="quick-chip" onclick="quickFill('مريم')">اسم: مريم</span>
+          <span class="quick-chip" onclick="quickFill('يوسف')">اسم: يوسف</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error / Not Found Box -->
+    <div class="not-found-box" id="notFoundBox">
+      <div class="not-found-icon">⚠️</div>
+      <div class="not-found-title" id="notFoundTitle">لم يتم العثور على نتائج</div>
+      <div class="not-found-desc" id="notFoundDesc">تأكد من كتابة الاسم بصورة صحيحة أو استخدم كود الطالب المكون من 9 أرقام (مثال: 420260098).</div>
+    </div>
+
+    <!-- Multi Results Section -->
+    <div class="result-section" id="multiResultsSection">
+      <div class="multi-results-card">
+        <h3>تم العثور على أكثر من طالب يطابق بحثك (<span id="multiCount">0</span> طالب):</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 14px;">اختر اسمك من القائمة التالية لعرض بطاقتك الأكاديمية وجدولك الدراسي:</p>
+        <div class="results-table-wrap">
+          <table class="results-table">
+            <thead>
+              <tr>
+                <th>اسم الطالب</th>
+                <th>كود الطالب</th>
+                <th>المجموعة (الجروب)</th>
+                <th>السيكشن</th>
+                <th>إجراء</th>
+              </tr>
+            </thead>
+            <tbody id="multiResultsBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Single Student Result Section -->
+    <div class="result-section" id="studentResultSection">
+      <div class="student-card" id="studentCardToPrint">
+        <!-- Top Banner -->
+        <div class="card-top-banner">
+          <div style="font-weight: 700; font-size: 1.05rem;">
+            بطاقة بيانات الطالب الأكاديمية | الفرقة الأولى
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <span class="header-badge">🏛️ معهد المستقبل العالي</span>
+            <span class="header-badge">💻 قسم علوم الحاسب</span>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <!-- Student Main Header -->
+          <div class="student-header-info">
+            <div class="student-identity">
+              <span style="font-size: 0.85rem; font-weight: 700; color: var(--accent); text-transform: uppercase;">طالب مقيد بالفرقة الأولى</span>
+              <h3 id="cardStudentName">اسم الطالب</h3>
+              <div style="display: flex; align-items: center; gap: 10px; margin-top: 6px;">
+                <div class="code-badge-wrap">
+                  <span style="font-size: 0.85rem; color: var(--text-muted);">الكود الأكاديمي:</span>
+                  <span id="cardStudentCode">420260000</span>
+                  <button class="copy-code-btn" onclick="copyCode()" title="نسخ الكود">📋</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card Actions -->
+            <div class="card-actions">
+              <button class="action-btn primary-action" onclick="window.print()">
+                <span>🖨️</span>
+                <span>طباعة البطاقة والجدول</span>
+              </button>
+              <button class="action-btn" onclick="copyFullData()">
+                <span>📋</span>
+                <span>نسخ البيانات</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- The Two Core Ask: Group and Section Badges -->
+          <div class="assignments-grid">
+            <!-- Group Box -->
+            <div class="assignment-box group-box" id="cardGroupBox">
+              <div class="box-icon">👥</div>
+              <div class="box-texts">
+                <span class="box-label">المجموعة المقيد بها (الجروب)</span>
+                <span class="box-value" id="cardGroupValue">المجموعة الأولى (G1)</span>
+                <span style="font-size: 0.8rem; color: var(--text-muted);" id="cardGroupSub">محاضرات مدرج 7</span>
+              </div>
+            </div>
+
+            <!-- Section Box -->
+            <div class="assignment-box sec-box" id="cardSecBox">
+              <div class="box-icon">🔬</div>
+              <div class="box-texts">
+                <span class="box-label">السيكشن الدراسي (Section)</span>
+                <span class="box-value" id="cardSecValue">سيكشن 1</span>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">معامل الحاسب الآلي والفيزياء</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Academic Context Notes -->
+          <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 14px 18px; font-size: 0.9rem; color: var(--text-muted);">
+            💡 <strong>تنبيه أكاديمي:</strong> الحضور إلزامي في المحاضرات والسكاشن الخاصة بمجموعتك وسيكشنك المحدد أعلاه. يرجى إبراز كود الطالب عند دخول المعامل والمدرجات.
+          </div>
+        </div>
+      </div>
+
+      <!-- Personalized Schedule for This Student -->
+      <div class="schedule-card">
+        <div class="schedule-header">
+          <div>
+            <h3 id="scheduleTitle">📅 جدول المحاضرات والسكاشن الخاص بالطالب</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">
+              الجدول الدراسي الأسبوعي المفصل لمجموعتك وسيكشنك وفقاً للمواعيد الرسمية للمعهد
+            </p>
+          </div>
+          <div class="day-filter-tabs" id="dayFilterTabs">
+            <button class="day-tab active" onclick="filterSchedule('ALL')">الكل (الأسبوع كاملاً)</button>
+            <button class="day-tab" onclick="filterSchedule('Sunday')">الأحد</button>
+            <button class="day-tab" onclick="filterSchedule('Monday')">الاثنين</button>
+            <button class="day-tab" onclick="filterSchedule('Tuesday')">الثلاثاء</button>
+            <button class="day-tab" onclick="filterSchedule('Wednesday')">الأربعاء</button>
+            <button class="day-tab" onclick="filterSchedule('Thursday')">الخميس</button>
+          </div>
+        </div>
+
+        <div class="schedule-grid" id="scheduleItemsContainer">
+          <!-- Schedule Items populated dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Directory Section & Section Overview -->
+    <div class="directory-section">
+      <div class="section-title">
+        <span>📊</span>
+        <span>إحصائيات وتوزيع سكاشن الفرقة الأولى</span>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-number">469</div>
+          <div class="stat-label">إجمالي طلاب الدفعة</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" style="color: var(--g1-color);">238</div>
+          <div class="stat-label">المجموعة الأولى (G1)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" style="color: var(--g2-color);">231</div>
+          <div class="stat-label">المجموعة الثانية (G2)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" style="color: var(--sec-color);">6</div>
+          <div class="stat-label">عدد السكاشن الدراسية</div>
+        </div>
+      </div>
+
+      <div class="section-pills" id="sectionPills">
+        <button class="sec-filter-btn active" onclick="showSectionDirectory('ALL')">عرض كل السكاشن</button>
+        <button class="sec-filter-btn" onclick="showSectionDirectory('Sec 1')">سيكشن 1 (80 طالب - G1)</button>
+        <button class="sec-filter-btn" onclick="showSectionDirectory('Sec 2')">سيكشن 2 (80 طالب - G2)</button>
+        <button class="sec-filter-btn" onclick="showSectionDirectory('Sec 3')">سيكشن 3 (80 طالب - G1)</button>
+        <button class="sec-filter-btn" onclick="showSectionDirectory('Sec 4')">سيكشن 4 (80 طالب - G2)</button>
+        <button class="sec-filter-btn" onclick="showSectionDirectory('Sec 5')">سيكشن 5 (78 طالب - G1)</button>
+        <button class="sec-filter-btn" onclick="showSectionDirectory('Sec 6')">سيكشن 6 (71 طالب - G2)</button>
+      </div>
+
+      <div class="multi-results-card" id="directoryListCard" style="display: none;">
+        <h3 id="directoryListTitle">قائمة الطلاب</h3>
+        <div class="results-table-wrap">
+          <table class="results-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>اسم الطالب</th>
+                <th>كود الطالب</th>
+                <th>المجموعة</th>
+                <th>السيكشن</th>
+                <th>إجراء</th>
+              </tr>
+            </thead>
+            <tbody id="directoryTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Toast Notification Box -->
+  <div class="toast" id="toastBox">
+    <span id="toastIcon">✅</span>
+    <span id="toastMsg">تم النسخ بنجاح!</span>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>جميع الحقوق محفوظة © معهد المستقبل العالي للدراسات التكنولوجية المتخصصة | قسم علوم الحاسب</p>
+    <p style="margin-top: 4px; font-size: 0.8rem;">
+      عميد المعهد: أ.د/ صافية عباس | رئيس القسم: أ.د/ ياسر فؤاد | منسق البرنامج: أ/ أميرة عبد المنعم
+    </p>
+  </footer>
+
+  <!-- Embedded Complete Dataset & Client Application Logic -->
+  <script>
+    const ALL_STUDENTS = [{"name": "ابانوب جميل بشرى رياض برسوم", "code": "420260098", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "ابانوب جميل بشري رياض برسوم"}, {"name": "ابانوب ماجد ابراهيم فوزى ميخائيل", "code": "420260002", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "ابانوب ماجد ابراهيم فوزي ميخائيل"}, {"name": "ابرام بطرس امين برسموس", "code": "420260512", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "ابرام بطرس امين برسموس"}, {"name": "ابراهيم احمد ابراهيم قايد محمد", "code": "420260565", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "ابراهيم احمد ابراهيم قايد محمد"}, {"name": "ابراهيم حسام ابراهيم حلمى", "code": "420261436", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "ابراهيم حسام ابراهيم حلمي"}, {"name": "ابراهيم فؤاد شوقى عبدالستار", "code": "420261884", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "ابراهيم فؤاد شوقي عبدالستار"}, {"name": "ابراهيم محمد عبدالحكم احمد سيد", "code": "420260069", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "ابراهيم محمد عبدالحكم احمد سيد"}, {"name": "ابراهيم محمد محمد غندور", "code": "420260731", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "ابراهيم محمد محمد غندور"}, {"name": "احمد اسامه فتحى لطفى محمد", "code": "420260566", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد اسامه فتحي لطفي محمد"}, {"name": "احمد اسماعيل احمد نظيم", "code": "420260295", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد اسماعيل احمد نظيم"}, {"name": "احمد اشرف رضوان على حموده", "code": "420261671", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد اشرف رضوان علي حموده"}, {"name": "احمد الرفاعى محمد مصطفى", "code": "420260791", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد الرفاعي محمد مصطفي"}, {"name": "احمد امان على محروس على", "code": "420261576", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد امان علي محروس علي"}, {"name": "احمد حسين السيد عبدالخالق السيد حموده", "code": "420260252", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد حسين السيد عبدالخالق السيد حموده"}, {"name": "احمد حسين محمود عمر احمد", "code": "420250302", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد حسين محمود عمر احمد"}, {"name": "احمد خالد محمد السيد رضوان", "code": "420260217", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد خالد محمد السيد رضوان"}, {"name": "احمد خيرى احمد حافظ علي", "code": "420260670", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد خيري احمد حافظ علي"}, {"name": "احمد رشاد عبدالباسط عبدالعزيز عبدالجواد", "code": "420260671", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد رشاد عبدالباسط عبدالعزيز عبدالجواد"}, {"name": "احمد رضا السيد احمد النبوى الحلو", "code": "420250368", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد رضا السيد احمد النبوي الحلو"}, {"name": "احمد رمضان السيد عبد المقصود", "code": "420261822", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد رمضان السيد عبد المقصود"}, {"name": "احمد سامح اسماعيل موسي محمد", "code": "420260263", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد سامح اسماعيل موسي محمد"}, {"name": "احمد سعيد احمد عبدالرازق", "code": "420260728", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد سعيد احمد عبدالرازق"}, {"name": "احمد سلامه امين سلامه", "code": "420260719", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد سلامه امين سلامه"}, {"name": "احمد سيد مسامح حامد", "code": "420261187", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد سيد مسامح حامد"}, {"name": "احمد صفوت احمد مصلح", "code": "420260519", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد صفوت احمد مصلح"}, {"name": "احمد صلاح محمد المهدى", "code": "420250307", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد صلاح محمد المهدي"}, {"name": "احمد طارق رمضان شحات", "code": "420260372", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد طارق رمضان شحات"}, {"name": "احمد طارق سعيد محمد", "code": "420260780", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد طارق سعيد محمد"}, {"name": "احمد عبدالخالق محمود حسن", "code": "420261421", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد عبدالخالق محمود حسن"}, {"name": "احمد عبدالعزيز محمد عبدالعزيز", "code": "420261392", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد عبدالعزيز محمد عبدالعزيز"}, {"name": "احمد عبدالعظيم محمود حموده", "code": "420261891", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد عبدالعظيم محمود حموده"}, {"name": "احمد عبدالقادر احمد الشال", "code": "420260890", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد عبدالقادر احمد الشال"}, {"name": "احمد عبدالله سيد على ابوالسعود", "code": "420261072", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد عبدالله سيد علي ابوالسعود"}, {"name": "احمد عبدالله محمد احمد البسطويسى", "code": "420260157", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد عبدالله محمد احمد البسطويسي"}, {"name": "احمد عرفه عبدالشهيد بشرى", "code": "420260853", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد عرفه عبدالشهيد بشري"}, {"name": "احمد عزت محمد طاهر احمد", "code": "420260447", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد عزت محمد طاهر احمد"}, {"name": "احمد عطيه محمد عطيه سلامه", "code": "420260872", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد عطيه محمد عطيه سلامه"}, {"name": "احمد عطيه محمود احمد على السيد", "code": "420260738", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد عطيه محمود احمد علي السيد"}, {"name": "احمد على السيد عكاشه محمد", "code": "420261790", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد علي السيد عكاشه محمد"}, {"name": "احمد على عبدالفضيل على عبدالمعطى", "code": "420260905", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد علي عبدالفضيل علي عبدالمعطي"}, {"name": "احمد فتحى جلال حسن", "code": "420260681", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد فتحي جلال حسن"}, {"name": "احمد محمد احمد رضا على الشريف", "code": "420260345", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد محمد احمد رضا علي الشريف"}, {"name": "احمد محمد رمضان عبدالونيس", "code": "420261625", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد محمد رمضان عبدالونيس"}, {"name": "احمد محمد عبدالحكيم محمود خفاجى", "code": "420260158", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد محمد عبدالحكيم محمود خفاجي"}, {"name": "احمد محمد عبدالسلام احمد", "code": "420261119", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد محمد عبدالسلام احمد"}, {"name": "احمد محمد على ابراهيم الهطل", "code": "420260616", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد محمد علي ابراهيم الهطل"}, {"name": "احمد محمد محفوظ سعيد", "code": "420261144", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد محمد محفوظ سعيد"}, {"name": "احمد محمد ميزار عبدالحميد مرسال", "code": "420261010", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد محمد ميزار عبدالحميد مرسال"}, {"name": "احمد محمد يوسف عبدالعظيم عبدالمنعم", "code": "420260206", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد محمد يوسف عبدالعظيم عبدالمنعم"}, {"name": "احمد محمدى عبدالله احمد", "code": "420260777", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد محمدي عبدالله احمد"}, {"name": "احمد محى الدين ابو النجا محمود", "code": "420251177", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد محي الدين ابو النجا محمود"}, {"name": "احمد ممتاز عمار عثمان", "code": "420261241", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد ممتاز عمار عثمان"}, {"name": "احمد ناجح عبدالحميد بشير", "code": "420260795", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد ناجح عبدالحميد بشير"}, {"name": "احمد نادر عاطف عبدالعزيز اسماعيل", "code": "420260026", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد نادر عاطف عبدالعزيز اسماعيل"}, {"name": "احمد ناصر عبدالوهاب عبدربه عطوه", "code": "420260409", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد ناصر عبدالوهاب عبدربه عطوه"}, {"name": "احمد ياسر سعد محمد عطا", "code": "420260713", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "احمد ياسر سعد محمد عطا"}, {"name": "ادهم محمد احمد علي", "code": "420260373", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "ادهم محمد احمد علي"}, {"name": "ادهم محمد على يوسف", "code": "420260109", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "ادهم محمد علي يوسف"}, {"name": "ادهم نصر محمد احمد محمد سالم", "code": "420260567", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "ادهم نصر محمد احمد محمد سالم"}, {"name": "اسامه محمد لطفى عبدالقادر يوسف", "code": "420260257", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "اسامه محمد لطفي عبدالقادر يوسف"}, {"name": "استيفن جابر شحاته عبد الملاك", "code": "420261714", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "استيفن جابر شحاته عبد الملاك"}, {"name": "استيفن نسيم يوسف اسحق", "code": "420261249", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "استيفن نسيم يوسف اسحق"}, {"name": "اسلام سعيد محمد محمود", "code": "420260475", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "اسلام سعيد محمد محمود"}, {"name": "اسلام محمد سعيد السيد احمد", "code": "420261162", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "اسلام محمد سعيد السيد احمد"}, {"name": "اسلام ياسر سعيد عفيفى ونس", "code": "420260797", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "اسلام ياسر سعيد عفيفي ونس"}, {"name": "اسماء اسامه عبدالفتاح محمد", "code": "420260756", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "اسماء اسامه عبدالفتاح محمد"}, {"name": "اسماء محمود سعيد ابراهيم", "code": "420260842", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "اسماء محمود سعيد ابراهيم"}, {"name": "الاء مبروك تهامى مبروك مسلم", "code": "420260494", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "الاء مبروك تهامي مبروك مسلم"}, {"name": "البراء احمد عبد الحليم ابراهيم سليمان", "code": "420261364", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "البراء احمد عبد الحليم ابراهيم سليمان"}, {"name": "السيد حسان السيد عبدالحليم عرفه", "code": "420261145", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "السيد حسان السيد عبدالحليم عرفه"}, {"name": "الطيب اسلام عرفه عبدالله عبدالرحمن", "code": "420260022", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "الطيب اسلام عرفه عبدالله عبدالرحمن"}, {"name": "اميره ماجد منصور ابو المجد على", "code": "420261819", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "اميره ماجد منصور ابو المجد علي"}, {"name": "امين تامر امين امين مصطفى", "code": "420260809", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "امين تامر امين امين مصطفي"}, {"name": "اندرو ماجد فارس جرجس", "code": "420260041", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "اندرو ماجد فارس جرجس"}, {"name": "انس محمود سيد موسي", "code": "420261411", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "انس محمود سيد موسي"}, {"name": "انطون ايمن ملاك حنا يوسف", "code": "420251095", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "انطون ايمن ملاك حنا يوسف"}, {"name": "انطونيوس عزت جبران عبيد سعيد", "code": "420261681", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "انطونيوس عزت جبران عبيد سعيد"}, {"name": "انطونيوس فايز سند كامل عطيه", "code": "420250378", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "انطونيوس فايز سند كامل عطيه"}, {"name": "اياد عمرو عصام الدين محمد", "code": "420261474", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "اياد عمرو عصام الدين محمد"}, {"name": "اياد محمد غنيمى العباسى", "code": "420260090", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 1", "section_ar": "سيكشن 1", "norm_name": "اياد محمد غنيمي العباسي"}, {"name": "ايثار مصطفى احمد حسن ابراهيم", "code": "420261774", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "ايثار مصطفي احمد حسن ابراهيم"}, {"name": "ايلاريا وليد فتحى صادق", "code": "420261605", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "ايلاريا وليد فتحي صادق"}, {"name": "ايمان احمد محمد توفيق محمد", "code": "420260773", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "ايمان احمد محمد توفيق محمد"}, {"name": "ايمان محمد محمود محمد خليفه", "code": "420260152", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "ايمان محمد محمود محمد خليفه"}, {"name": "ايمن محمد عبدالرحمن عبدالوارث احمد", "code": "420260219", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "ايمن محمد عبدالرحمن عبدالوارث احمد"}, {"name": "ايه ايمن عبدالتواب السيد شكر", "code": "420260186", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "ايه ايمن عبدالتواب السيد شكر"}, {"name": "ايه حسام ابراهيم زكى ابراهيم", "code": "420260284", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "ايه حسام ابراهيم زكي ابراهيم"}, {"name": "ايه زكريا حامد عبدالرحمن الشحات", "code": "420260087", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "ايه زكريا حامد عبدالرحمن الشحات"}, {"name": "باسل اشرف عبدالفتاح احمد عشرى", "code": "420261011", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "باسل اشرف عبدالفتاح احمد عشري"}, {"name": "باسم محمد محمد عبدالحميد", "code": "420260584", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "باسم محمد محمد عبدالحميد"}, {"name": "بافلى اميل سعيد ابراهيم ميخائيل", "code": "420260177", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "بافلي اميل سعيد ابراهيم ميخائيل"}, {"name": "براء طارق محمد محمود عبدالسميع", "code": "420260672", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "براء طارق محمد محمود عبدالسميع"}, {"name": "بسمله احمد ابوالحجاج محمد محمد", "code": "420261815", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "بسمله احمد ابوالحجاج محمد محمد"}, {"name": "بسمله شريف محمد محمد عطا", "code": "420260378", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "بسمله شريف محمد محمد عطا"}, {"name": "بسنت احمد حامد متولى على", "code": "420260737", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "بسنت احمد حامد متولي علي"}, {"name": "بلال حمدان عبد الغفار خميس حسن", "code": "420260300", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "بلال حمدان عبد الغفار خميس حسن"}, {"name": "بلال عبدالسلام سيد عبدالسلام", "code": "420261340", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "بلال عبدالسلام سيد عبدالسلام"}, {"name": "بيبرس حامد ابراهيم الشال", "code": "420260102", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "بيبرس حامد ابراهيم الشال"}, {"name": "بيتر عادل نمر عبيد جندى", "code": "420260755", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "بيتر عادل نمر عبيد جندي"}, {"name": "بيشوى اشرف جرجس صموئيل", "code": "420260492", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "بيشوي اشرف جرجس صموئيل"}, {"name": "بيشوى اكمل حلمى عبدالله خير", "code": "420260012", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "بيشوي اكمل حلمي عبدالله خير"}, {"name": "بيشوى امين فخرى امين", "code": "420261485", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "بيشوي امين فخري امين"}, {"name": "بيشوى ايهاب عادل مسعد عبدالملاك", "code": "420260108", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "بيشوي ايهاب عادل مسعد عبدالملاك"}, {"name": "تسنيم محمد محمود محمد محمود", "code": "420260798", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "تسنيم محمد محمود محمد محمود"}, {"name": "توماس سمير ظريف سمعان مجلى", "code": "420261097", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "توماس سمير ظريف سمعان مجلي"}, {"name": "توماس يوسف ابراهيم سلمى", "code": "420260733", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "توماس يوسف ابراهيم سلمي"}, {"name": "جاسور حسن جاسور حسن", "code": "420250520", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "جاسور حسن جاسور حسن"}, {"name": "جنه حسين حسن ابراهيم احمد", "code": "420260746", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "جنه حسين حسن ابراهيم احمد"}, {"name": "جنى اسامه محمد عبدالرحمن احمد", "code": "420260122", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "جني اسامه محمد عبدالرحمن احمد"}, {"name": "جنى اشرف محمد على", "code": "420260639", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "جني اشرف محمد علي"}, {"name": "جنى تامر احمد محمد مصطفى", "code": "420260193", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "جني تامر احمد محمد مصطفي"}, {"name": "جنى سعيد عبدالحميد ابراهيم عيسى", "code": "420261579", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "جني سعيد عبدالحميد ابراهيم عيسي"}, {"name": "جنى سيد محمود محمد حلمى", "code": "420260095", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "جني سيد محمود محمد حلمي"}, {"name": "جنى محمد فتحى ابراهيم سلامه", "code": "420261508", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "جني محمد فتحي ابراهيم سلامه"}, {"name": "جنى هانى رجب ابراهيم عبدالهادى", "code": "420260083", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "جني هاني رجب ابراهيم عبدالهادي"}, {"name": "جون اسامه خلف الله حفيظ نصيف", "code": "420260226", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "جون اسامه خلف الله حفيظ نصيف"}, {"name": "حازم عمرو عبدالحميد عبدربه", "code": "420260753", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "حازم عمرو عبدالحميد عبدربه"}, {"name": "حازم محمد رشاد محمد الدسوقى", "code": "420261569", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "حازم محمد رشاد محمد الدسوقي"}, {"name": "حازم محمد فريد محمد محمد", "code": "420260948", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "حازم محمد فريد محمد محمد"}, {"name": "حبيبه على عويس احمد", "code": "420260632", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "حبيبه علي عويس احمد"}, {"name": "حبيبه هشام محمد عبدالمعطى", "code": "420260673", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "حبيبه هشام محمد عبدالمعطي"}, {"name": "حسام احمد امين عبدالله رشوان", "code": "420261487", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "حسام احمد امين عبدالله رشوان"}, {"name": "حسام محمد عبدالحكم اسماعيل منصور", "code": "420261044", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "حسام محمد عبدالحكم اسماعيل منصور"}, {"name": "حسن اشرف محمد حسن سليم", "code": "420261032", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "حسن اشرف محمد حسن سليم"}, {"name": "حسن السيد عبدربه حسن عبدربه", "code": "420260068", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "حسن السيد عبدربه حسن عبدربه"}, {"name": "حسن محمد حسن عبدالفتاح عبدالعزيز", "code": "420261024", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "حسن محمد حسن عبدالفتاح عبدالعزيز"}, {"name": "حسين محمد ابراهيم عبدالمنعم ابراهيم", "code": "420260008", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "حسين محمد ابراهيم عبدالمنعم ابراهيم"}, {"name": "حلمى طارق حلمى محمود", "code": "420261578", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "حلمي طارق حلمي محمود"}, {"name": "حمزه محمد عبدالواحد عبد", "code": "420260590", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "حمزه محمد عبدالواحد عبد"}, {"name": "خالد عزالدين عبدالحميد احمد", "code": "420261759", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "خالد عزالدين عبدالحميد احمد"}, {"name": "ديفيد اشرف فرويز عبده", "code": "420261305", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "ديفيد اشرف فرويز عبده"}, {"name": "ديفيد نشأت نجيب روفائيل", "code": "420260128", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "ديفيد نشات نجيب روفائيل"}, {"name": "رافت محمد حسين السيد الشاعر", "code": "420260325", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "رافت محمد حسين السيد الشاعر"}, {"name": "رامى رزق وليم رياض ميلاد", "code": "420260360", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "رامي رزق وليم رياض ميلاد"}, {"name": "رائد ايهاب محمد عفيفى البشرى", "code": "420260563", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "رائد ايهاب محمد عفيفي البشري"}, {"name": "رحمه صلاح عبدالعزيز عبدالمقصود", "code": "420261908", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "رحمه صلاح عبدالعزيز عبدالمقصود"}, {"name": "رضوى عماد عبدالصبور محمد", "code": "420261166", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "رضوي عماد عبدالصبور محمد"}, {"name": "رقيه احمد فتحى محمد صقر", "code": "420260570", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "رقيه احمد فتحي محمد صقر"}, {"name": "رنا عادل حامد عثمان حامد", "code": "420261045", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "رنا عادل حامد عثمان حامد"}, {"name": "رنيم رامى فائق فوزى", "code": "420260669", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "رنيم رامي فائق فوزي"}, {"name": "روان تامر فؤاد على محمد نونو", "code": "420260230", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "روان تامر فؤاد علي محمد نونو"}, {"name": "روان عصام محمد عبداللطيف يوسف", "code": "420261168", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "روان عصام محمد عبداللطيف يوسف"}, {"name": "روان ياسر صبرى عبد الفتاح خلف", "code": "420260214", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "روان ياسر صبري عبد الفتاح خلف"}, {"name": "رودينا ايهاب محمد طاهر", "code": "420261604", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "رودينا ايهاب محمد طاهر"}, {"name": "ريتاج محمد عبدالرحمن السيد عليوه", "code": "420260094", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "ريتاج محمد عبدالرحمن السيد عليوه"}, {"name": "ريتاج محمد محمد سليم", "code": "420261687", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "ريتاج محمد محمد سليم"}, {"name": "ريناد محمد السيد عبده ابوالعنين", "code": "420261122", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "ريناد محمد السيد عبده ابوالعنين"}, {"name": "زكريا عماد زكريا سليمان", "code": "420260272", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "زكريا عماد زكريا سليمان"}, {"name": "زياد ابراهيم محمد فتحى محمود", "code": "420260658", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "زياد ابراهيم محمد فتحي محمود"}, {"name": "زياد احمد ابراهيم مصطفى غريب", "code": "420260640", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "زياد احمد ابراهيم مصطفي غريب"}, {"name": "زياد احمد عبدالعاطى احمد سند", "code": "420261619", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "زياد احمد عبدالعاطي احمد سند"}, {"name": "زياد اسامه محمد مصطفى موسى", "code": "420261033", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "زياد اسامه محمد مصطفي موسي"}, {"name": "زياد اشرف عبدالعزيز محمد حماد", "code": "420261263", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "زياد اشرف عبدالعزيز محمد حماد"}, {"name": "زياد ايمن بيومى متولى", "code": "420260104", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "زياد ايمن بيومي متولي"}, {"name": "زياد ايمن صلاح حجازى", "code": "420260555", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "زياد ايمن صلاح حجازي"}, {"name": "زياد رفاعى رفاعى سعداوى", "code": "420260678", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "زياد رفاعي رفاعي سعداوي"}, {"name": "زياد عبده محمد ابراهيم عبدالدايم", "code": "420261253", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "زياد عبده محمد ابراهيم عبدالدايم"}, {"name": "زياد محمد عبدالسلام على احمد", "code": "420260720", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "زياد محمد عبدالسلام علي احمد"}, {"name": "زياد هشام حسن محمد حسن", "code": "420260348", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "زياد هشام حسن محمد حسن"}, {"name": "زياد وليد عبدالنبى محمد مرسى", "code": "420260790", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "زياد وليد عبدالنبي محمد مرسي"}, {"name": "زياد وليد فاروق عليش احمد", "code": "420261104", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 3", "section_ar": "سيكشن 3", "norm_name": "زياد وليد فاروق عليش احمد"}, {"name": "زياد وليد محمد ابراهيم", "code": "420261557", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "زياد وليد محمد ابراهيم"}, {"name": "ساره حسين محمود محمد احمد", "code": "420260729", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "ساره حسين محمود محمد احمد"}, {"name": "سحر حسين عبدالكريم حسين", "code": "420260586", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "سحر حسين عبدالكريم حسين"}, {"name": "سعيد عبدالحميد سعيد عبدالحفيظ عبدالعزيز", "code": "420261479", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "سعيد عبدالحميد سعيد عبدالحفيظ عبدالعزيز"}, {"name": "سلمى تامر محمد محمد", "code": "420261672", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "سلمي تامر محمد محمد"}, {"name": "سلمى عصام الدين فتحى عبد الصادق سالم", "code": "420260413", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "سلمي عصام الدين فتحي عبد الصادق سالم"}, {"name": "سلمى محمد مصطفى محمد مصطفى", "code": "420261594", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "سلمي محمد مصطفي محمد مصطفي"}, {"name": "سلمى وائل ابراهيم محمد حسن", "code": "420260006", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "سلمي وائل ابراهيم محمد حسن"}, {"name": "سلمى وجيه كمال عبدالعزيز برقوقى", "code": "420260065", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "سلمي وجيه كمال عبدالعزيز برقوقي"}, {"name": "سما على عبد الجابر سالم مصطفى", "code": "420260216", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "سما علي عبد الجابر سالم مصطفي"}, {"name": "سما محمد عبدالعزيز متولي", "code": "420261776", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "سما محمد عبدالعزيز متولي"}, {"name": "سما محمد مصطفى محمد منصور", "code": "420260813", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "سما محمد مصطفي محمد منصور"}, {"name": "سميه محمود كامل محمدين", "code": "420260739", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "سميه محمود كامل محمدين"}, {"name": "سندس علاء رفاعى ابراهيم مصطفي", "code": "420260717", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "سندس علاء رفاعي ابراهيم مصطفي"}, {"name": "سندس عواد ابراهيم عبدالمقصود سليمان", "code": "420260554", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "سندس عواد ابراهيم عبدالمقصود سليمان"}, {"name": "سيف اسامه عبدالسميع عبدالخالق سليمان", "code": "420261232", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "سيف اسامه عبدالسميع عبدالخالق سليمان"}, {"name": "سيف الدين عادل محمد محمود محمد", "code": "420260166", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "سيف الدين عادل محمد محمود محمد"}, {"name": "سيف سلطان حسنى على", "code": "420251182", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "سيف سلطان حسني علي"}, {"name": "شذا خالد احمد على محمود", "code": "420260148", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "شذا خالد احمد علي محمود"}, {"name": "شذى ايهاب محمود عطيه", "code": "420261482", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "شذي ايهاب محمود عطيه"}, {"name": "شروق محمد سيد فرج السحيتى", "code": "420260073", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "شروق محمد سيد فرج السحيتي"}, {"name": "شمس طارق مصطفى احمد سالم", "code": "420260028", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "شمس طارق مصطفي احمد سالم"}, {"name": "شهد طارق عبده عبده المسلمى", "code": "420260591", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "شهد طارق عبده عبده المسلمي"}, {"name": "شهد عبدالعاطى عبدالعليم محمد عبدالفتاح", "code": "420261038", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "شهد عبدالعاطي عبدالعليم محمد عبدالفتاح"}, {"name": "صالح ياسر صالح سيد", "code": "420261194", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "صالح ياسر صالح سيد"}, {"name": "ضياء محمود محمد احمد على", "code": "420260935", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "ضياء محمود محمد احمد علي"}, {"name": "عبد الرحمن على مسعد على محمد فلفله", "code": "420261791", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبد الرحمن علي مسعد علي محمد فلفله"}, {"name": "عبد الرحمن محمد عطيه تاج الدين على الطنطاوى", "code": "420261532", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبد الرحمن محمد عطيه تاج الدين علي الطنطاوي"}, {"name": "عبد الله السيد عطا محمود محمد", "code": "420261821", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبد الله السيد عطا محمود محمد"}, {"name": "عبد الله شاذلى سيد صادق", "code": "420261787", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبد الله شاذلي سيد صادق"}, {"name": "عبدالحميد ابراهيم عبدالحميد ابراهيم عبدالحميد", "code": "420261466", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالحميد ابراهيم عبدالحميد ابراهيم عبدالحميد"}, {"name": "عبدالحميد محمد عبدالحميد ابراهيم ابوشوك", "code": "420261461", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالحميد محمد عبدالحميد ابراهيم ابوشوك"}, {"name": "عبدالرحمن احمد رمضان ابراهيم محمد", "code": "420260661", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالرحمن احمد رمضان ابراهيم محمد"}, {"name": "عبدالرحمن احمد سيد احمد السيد", "code": "420260742", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالرحمن احمد سيد احمد السيد"}, {"name": "عبدالرحمن احمد محمد احمد محمد", "code": "420261106", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالرحمن احمد محمد احمد محمد"}, {"name": "عبدالرحمن السيد فاروق عواد", "code": "420260615", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالرحمن السيد فاروق عواد"}, {"name": "عبدالرحمن تامر عادل كامل", "code": "420261639", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالرحمن تامر عادل كامل"}, {"name": "عبدالرحمن خالد رفعت ابراهيم", "code": "420260293", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالرحمن خالد رفعت ابراهيم"}, {"name": "عبدالرحمن خالد عفيفى سيد احمد عفيفى", "code": "420261465", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالرحمن خالد عفيفي سيد احمد عفيفي"}, {"name": "عبدالرحمن سمير محمود توفيق رمضان", "code": "420260626", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالرحمن سمير محمود توفيق رمضان"}, {"name": "عبدالرحمن عادل محمد ابراهيم سيد احمد الشناوى", "code": "420260526", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالرحمن عادل محمد ابراهيم سيد احمد الشناوي"}, {"name": "عبدالرحمن عاطف عبدالرحمن محمد على", "code": "420260120", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالرحمن عاطف عبدالرحمن محمد علي"}, {"name": "عبدالرحمن مبروك مصطفى مبروك", "code": "420260473", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالرحمن مبروك مصطفي مبروك"}, {"name": "عبدالرحمن مجدى حسين عبدالسلام عبدالمجيد", "code": "420260038", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالرحمن مجدي حسين عبدالسلام عبدالمجيد"}, {"name": "عبدالرحمن محمد الهادى حسن زكي", "code": "420260299", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالرحمن محمد الهادي حسن زكي"}, {"name": "عبدالرحمن محمد عبدالفتاح محمد", "code": "420260852", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالرحمن محمد عبدالفتاح محمد"}, {"name": "عبدالرحمن محمد عبدالله سند زاهر", "code": "420261829", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالرحمن محمد عبدالله سند زاهر"}, {"name": "عبدالرحمن محمد علي عباس عبدالعليم", "code": "420260688", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالرحمن محمد علي عباس عبدالعليم"}, {"name": "عبدالرحمن محمد عوض غريب الجزار", "code": "420260258", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالرحمن محمد عوض غريب الجزار"}, {"name": "عبدالرحمن محمد كارم محمود محمود", "code": "420260805", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالرحمن محمد كارم محمود محمود"}, {"name": "عبدالرحمن محمود فوزى خليل", "code": "420261213", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالرحمن محمود فوزي خليل"}, {"name": "عبدالعزيز السيد عبدالعزيز عطيه على", "code": "420261870", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالعزيز السيد عبدالعزيز عطيه علي"}, {"name": "عبدالفتاح عادل عبدالفتاح عبدالحليم غنية", "code": "420260814", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالفتاح عادل عبدالفتاح عبدالحليم غنيه"}, {"name": "عبدالله احمد عبدالمنعم عبدالله عبدالوهاب", "code": "420260703", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالله احمد عبدالمنعم عبدالله عبدالوهاب"}, {"name": "عبدالله ايمن عبداللطيف حامد عبداللطيف", "code": "420261434", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالله ايمن عبداللطيف حامد عبداللطيف"}, {"name": "عبدالله سند ابراهيم عبدالمعبود ابراهيم نصار", "code": "420261602", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالله سند ابراهيم عبدالمعبود ابراهيم نصار"}, {"name": "عبدالله عصام عبدالحميد محمود على", "code": "420261199", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالله عصام عبدالحميد محمود علي"}, {"name": "عبدالله على محمود عبدالمنعم فرو", "code": "420261825", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالله علي محمود عبدالمنعم فرو"}, {"name": "عبدالله محمد عبدالجواد خفاجى الحداد", "code": "420260200", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالله محمد عبدالجواد خفاجي الحداد"}, {"name": "عبدالله محمد عبدالسلام رضوان", "code": "420260125", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالله محمد عبدالسلام رضوان"}, {"name": "عبدالله محمود عبدالرحمن السيد", "code": "420260592", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالله محمود عبدالرحمن السيد"}, {"name": "عبدالله ممدوح حسين حسن النجار", "code": "420260202", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبدالله ممدوح حسين حسن النجار"}, {"name": "عبير محمود الشحات احمد ابراهيم", "code": "420261817", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عبير محمود الشحات احمد ابراهيم"}, {"name": "على احمد عبدالحميد احمد حسين", "code": "420261240", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "علي احمد عبدالحميد احمد حسين"}, {"name": "على اشرف ماهر احمد مصطفى الحسينى", "code": "420260115", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "علي اشرف ماهر احمد مصطفي الحسيني"}, {"name": "على الدين ايمن حسن على حسن", "code": "420260580", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "علي الدين ايمن حسن علي حسن"}, {"name": "على حسن على محمد على زايد", "code": "420260059", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "علي حسن علي محمد علي زايد"}, {"name": "على سامح على علام علام", "code": "420260711", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "علي سامح علي علام علام"}, {"name": "على محمد قطب محمد احمد", "code": "420260702", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "علي محمد قطب محمد احمد"}, {"name": "على محمد محمد محمود راشد", "code": "420260807", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "علي محمد محمد محمود راشد"}, {"name": "عمار شيرين محسن زكى دامو", "code": "420261208", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عمار شيرين محسن زكي دامو"}, {"name": "عمر وليد محمد احمد محمد", "code": "420261925", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "عمر وليد محمد احمد محمد"}, {"name": "محمد احمد سعيد محمد مدبولى الزغبى", "code": "420261926", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "محمد احمد سعيد محمد مدبولي الزغبي"}, {"name": "محمد صلاح محمد بركات عبد العزيز غزال", "code": "420261912", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "محمد صلاح محمد بركات عبد العزيز غزال"}, {"name": "محمد محمد عبدالحميد محمد احمد", "code": "420261919", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "محمد محمد عبدالحميد محمد احمد"}, {"name": "مؤمن مصطفى محمد سيد علام", "code": "420261922", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "مؤمن مصطفي محمد سيد علام"}, {"name": "ندى منصور جبريل اكشبير عطيه", "code": "420261911", "group": "G1", "group_ar": "المجموعة الأولى (G1)", "section": "Sec 5", "section_ar": "سيكشن 5", "norm_name": "ندي منصور جبريل اكشبير عطيه"}, {"name": "عمار علاء محروس عبد الحميد", "code": "420260792", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "عمار علاء محروس عبد الحميد"}, {"name": "عمار محمد سعيد محمد عثمان", "code": "420260504", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "عمار محمد سعيد محمد عثمان"}, {"name": "عمر احمد محمد حسين", "code": "420250220", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "عمر احمد محمد حسين"}, {"name": "عمر اشرف محمد عطيه بيومى", "code": "420260266", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "عمر اشرف محمد عطيه بيومي"}, {"name": "عمر ايمن محمد عبدالغفار", "code": "420260169", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "عمر ايمن محمد عبدالغفار"}, {"name": "عمر باسم عبدالحميد جمعة", "code": "420260488", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "عمر باسم عبدالحميد جمعه"}, {"name": "عمر رأفت عبدالحليم محمد على", "code": "420260197", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "عمر رافت عبدالحليم محمد علي"}, {"name": "عمر رفعت صلاح عبدالمقصود الشوادفى", "code": "420260734", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "عمر رفعت صلاح عبدالمقصود الشوادفي"}, {"name": "عمر شريف عبدالفتاح حامد احمد", "code": "420261897", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "عمر شريف عبدالفتاح حامد احمد"}, {"name": "عمر عبدالرحمن محمود مصطفى مراد", "code": "420260924", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "عمر عبدالرحمن محمود مصطفي مراد"}, {"name": "عمر عبدالعزيز ابراهيم عبدالعزيز غريب", "code": "420260010", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "عمر عبدالعزيز ابراهيم عبدالعزيز غريب"}, {"name": "عمر عبدالمنعم سامى عبد المنعم مرسى", "code": "420260657", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "عمر عبدالمنعم سامي عبد المنعم مرسي"}, {"name": "عمر عماد احمد عطا محمد", "code": "420260131", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "عمر عماد احمد عطا محمد"}, {"name": "عمر ماهر عبدالرحيم محمد سرور", "code": "420250373", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "عمر ماهر عبدالرحيم محمد سرور"}, {"name": "عمر محمد السيد مهدى عقله", "code": "420260674", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "عمر محمد السيد مهدي عقله"}, {"name": "عمر محمد سعد عبدالوهاب محمد", "code": "420260435", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "عمر محمد سعد عبدالوهاب محمد"}, {"name": "عمر محمد سيد محمد احمد", "code": "420261679", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "عمر محمد سيد محمد احمد"}, {"name": "عمر محمد عبدالعظيم على على", "code": "420260260", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "عمر محمد عبدالعظيم علي علي"}, {"name": "عمر محمد عبدالهادى عبدالمعطى عبدالهادى", "code": "420261784", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "عمر محمد عبدالهادي عبدالمعطي عبدالهادي"}, {"name": "عمر مصطفى عبدالنبى ابراهيم راجح", "code": "420261593", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "عمر مصطفي عبدالنبي ابراهيم راجح"}, {"name": "عمر هشام سيد عبدالحميد سعدون", "code": "420260167", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "عمر هشام سيد عبدالحميد سعدون"}, {"name": "عمر هيثم حسن فرج عبدالجواد", "code": "420261147", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "عمر هيثم حسن فرج عبدالجواد"}, {"name": "عمر وائل على ختيمى محمد", "code": "420260003", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "عمر وائل علي ختيمي محمد"}, {"name": "عمرو خالد عبدالمنصف محمود موسى", "code": "420250389", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "عمرو خالد عبدالمنصف محمود موسي"}, {"name": "عمرو خالد كمال عبدالكريم اسماعيل", "code": "420260455", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "عمرو خالد كمال عبدالكريم اسماعيل"}, {"name": "عمرو عيد كامل امين", "code": "420250984", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "عمرو عيد كامل امين"}, {"name": "عنتر مصطفى عنتر امام عثمان", "code": "420260925", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "عنتر مصطفي عنتر امام عثمان"}, {"name": "فاطمه ابراهيم طه امام حسنين", "code": "420260053", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "فاطمه ابراهيم طه امام حسنين"}, {"name": "فاطمه مدحت محمد محمود عبدالحميد عزب", "code": "420261610", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "فاطمه مدحت محمد محمود عبدالحميد عزب"}, {"name": "فريده اسامه محمد عبدالمنعم عباده", "code": "420260030", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "فريده اسامه محمد عبدالمنعم عباده"}, {"name": "فريده محمد حنفى محمود امبابى", "code": "420260121", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "فريده محمد حنفي محمود امبابي"}, {"name": "فريده محمد محمد عبدالفتاح محمد", "code": "420260261", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "فريده محمد محمد عبدالفتاح محمد"}, {"name": "فهد خليل ابراهيم عبده قندى", "code": "420260560", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "فهد خليل ابراهيم عبده قندي"}, {"name": "فيصل محمود احمد محمد حسان المسعودى", "code": "420260324", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "فيصل محمود احمد محمد حسان المسعودي"}, {"name": "فيلوباتير عماد رزق جوارجيوس فرج", "code": "420260174", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "فيلوباتير عماد رزق جوارجيوس فرج"}, {"name": "كاراس ايمن رمزى فهيم يوسف", "code": "420260235", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "كاراس ايمن رمزي فهيم يوسف"}, {"name": "كارن فاطين فوزى محروس", "code": "420260694", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "كارن فاطين فوزي محروس"}, {"name": "كرليس عيسى عطيه عزيز", "code": "420260383", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "كرليس عيسي عطيه عزيز"}, {"name": "كريم خلف عبدالمالك ابوالحسين", "code": "420261117", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "كريم خلف عبدالمالك ابوالحسين"}, {"name": "كنزى أشرف حسن ابو النور ابراهيم", "code": "420260066", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "كنزي اشرف حسن ابو النور ابراهيم"}, {"name": "كنزى وائل صبرى مرسى ابراهيم", "code": "420260317", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "كنزي وائل صبري مرسي ابراهيم"}, {"name": "كنزي عماد محمد امام محمد", "code": "420261511", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "كنزي عماد محمد امام محمد"}, {"name": "كيرلس رضا وحيد اسحق", "code": "420261624", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "كيرلس رضا وحيد اسحق"}, {"name": "كيرلس ماجد كرومل حناوى ارمانيوس", "code": "420261329", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "كيرلس ماجد كرومل حناوي ارمانيوس"}, {"name": "لبنى عبدالناصر متولى عبدربه موسى", "code": "420260754", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "لبني عبدالناصر متولي عبدربه موسي"}, {"name": "لوجين حسن شحاته ابراهيم", "code": "420260091", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "لوجين حسن شحاته ابراهيم"}, {"name": "ماجد عبدالوهاب ماجد عبدالوهاب محمد", "code": "420260784", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "ماجد عبدالوهاب ماجد عبدالوهاب محمد"}, {"name": "ماريا ايهاب نبيل شفيق حنا", "code": "420261772", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "ماريا ايهاب نبيل شفيق حنا"}, {"name": "ماريز سمير صبرى عوض", "code": "420261816", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "ماريز سمير صبري عوض"}, {"name": "مازن احمد عبدالحليم سيد", "code": "420260771", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "مازن احمد عبدالحليم سيد"}, {"name": "مازن احمد محمد احمد فهمي", "code": "420260985", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "مازن احمد محمد احمد فهمي"}, {"name": "مازن عماد على محمود الهوارى", "code": "420260893", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "مازن عماد علي محمود الهواري"}, {"name": "محسن ياسر محسن احمد", "code": "420260679", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محسن ياسر محسن احمد"}, {"name": "محمد احمد ابوزيد عبدالفتاح محمد", "code": "420260337", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محمد احمد ابوزيد عبدالفتاح محمد"}, {"name": "محمد احمد جلال عبد البديع محمد", "code": "420261130", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محمد احمد جلال عبد البديع محمد"}, {"name": "محمد احمد حسين محمد عبدالفتاح", "code": "420260677", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محمد احمد حسين محمد عبدالفتاح"}, {"name": "محمد احمد عبدالخالق ابراهيم السيد", "code": "420250762", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محمد احمد عبدالخالق ابراهيم السيد"}, {"name": "محمد احمد كمال الدين اسماعيل محمد حسين", "code": "420261591", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محمد احمد كمال الدين اسماعيل محمد حسين"}, {"name": "محمد احمد محمد حسنى منصور", "code": "420261127", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محمد احمد محمد حسني منصور"}, {"name": "محمد احمد محمد عبدالرحمن محمد", "code": "420261143", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محمد احمد محمد عبدالرحمن محمد"}, {"name": "محمد اسامه حسن حماد ابراهيم", "code": "420261313", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محمد اسامه حسن حماد ابراهيم"}, {"name": "محمد ايمن جلال عبدالحليم", "code": "420260025", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محمد ايمن جلال عبدالحليم"}, {"name": "محمد ايمن محمد ابراهيم ابراهيم على", "code": "420261872", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محمد ايمن محمد ابراهيم ابراهيم علي"}, {"name": "محمد بدر فؤاد بدر محمد", "code": "420261606", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محمد بدر فؤاد بدر محمد"}, {"name": "محمد جلال محمد محمود ابراهيم", "code": "420261780", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محمد جلال محمد محمود ابراهيم"}, {"name": "محمد جمال الدين محمد فتحى محمد بدوي", "code": "420261121", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محمد جمال الدين محمد فتحي محمد بدوي"}, {"name": "محمد حامد محمد امام محمد عبدالغنى", "code": "420261029", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محمد حامد محمد امام محمد عبدالغني"}, {"name": "محمد حسام محمد رضا شفيق خليل", "code": "420261105", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محمد حسام محمد رضا شفيق خليل"}, {"name": "محمد حسن احمد حسن برعى", "code": "420260539", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محمد حسن احمد حسن برعي"}, {"name": "محمد حسن حسين محمد محمد خاطر", "code": "420260330", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محمد حسن حسين محمد محمد خاطر"}, {"name": "محمد حسن محمود عبدالرحمن سلطان", "code": "420261632", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محمد حسن محمود عبدالرحمن سلطان"}, {"name": "محمد حسنى محمد يوسف سيد مليجى", "code": "420260675", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محمد حسني محمد يوسف سيد مليجي"}, {"name": "محمد حسين ابراهيم حسين", "code": "420260693", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محمد حسين ابراهيم حسين"}, {"name": "محمد حماده جمعه ايوب", "code": "420261895", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محمد حماده جمعه ايوب"}, {"name": "محمد حماده صابر محمد ابراهيم", "code": "420260439", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محمد حماده صابر محمد ابراهيم"}, {"name": "محمد حماده عبدالفتاح العجمى ابراهيم", "code": "420261047", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محمد حماده عبدالفتاح العجمي ابراهيم"}, {"name": "محمد خالد اسماعيل صدقى", "code": "420260549", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محمد خالد اسماعيل صدقي"}, {"name": "محمد خالد رمضان محمد حسنونه", "code": "420250453", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محمد خالد رمضان محمد حسنونه"}, {"name": "محمد رافت محمد حامد حسنين", "code": "420260606", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محمد رافت محمد حامد حسنين"}, {"name": "محمد رجب عبدالعظيم محمد عبدالحفيظ", "code": "420261136", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 2", "section_ar": "سيكشن 2", "norm_name": "محمد رجب عبدالعظيم محمد عبدالحفيظ"}, {"name": "محمد رجب محمد محمد", "code": "420261478", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد رجب محمد محمد"}, {"name": "محمد رضا النبوى حسينى حسين", "code": "420261673", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد رضا النبوي حسيني حسين"}, {"name": "محمد رضا محمد ابراهيم محمد عبدالعال", "code": "420260621", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد رضا محمد ابراهيم محمد عبدالعال"}, {"name": "محمد رمضان عطيه محمد محمد", "code": "420250347", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد رمضان عطيه محمد محمد"}, {"name": "محمد رمضان كامل دريس دريس", "code": "420260469", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد رمضان كامل دريس دريس"}, {"name": "محمد سامح محمد كمال الدين محمد بيومى", "code": "420260023", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد سامح محمد كمال الدين محمد بيومي"}, {"name": "محمد سامى سالم صالح", "code": "420260725", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد سامي سالم صالح"}, {"name": "محمد سعيد سعداوى محمد منصور", "code": "420260989", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد سعيد سعداوي محمد منصور"}, {"name": "محمد سيد فتحى ابراهيم فارس", "code": "420260617", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد سيد فتحي ابراهيم فارس"}, {"name": "محمد سيد محمد دسوقى عمر", "code": "420260880", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد سيد محمد دسوقي عمر"}, {"name": "محمد شعبان عبدالمطلب عبد", "code": "420261509", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد شعبان عبدالمطلب عبد"}, {"name": "محمد ضياءالدين تهامى طه مقلد", "code": "420260165", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد ضياءالدين تهامي طه مقلد"}, {"name": "محمد طارق احمد رزق محمد دياب", "code": "420261694", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد طارق احمد رزق محمد دياب"}, {"name": "محمد عبدالحميد السيد احمد احمد", "code": "420250860", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد عبدالحميد السيد احمد احمد"}, {"name": "محمد عبدالشكور شبل عبدالشكورمسيل", "code": "420261447", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد عبدالشكور شبل عبدالشكورمسيل"}, {"name": "محمد عبدالقادر محمد عيسى ابراهيم", "code": "420260799", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد عبدالقادر محمد عيسي ابراهيم"}, {"name": "محمد عطيه عوده سليمان جمعه", "code": "420260556", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد عطيه عوده سليمان جمعه"}, {"name": "محمد على عبدالمجيد الشناوى", "code": "420260642", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد علي عبدالمجيد الشناوي"}, {"name": "محمد عمر نجاح احمد حسن", "code": "420261052", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد عمر نجاح احمد حسن"}, {"name": "محمد عيد محمد يسن سعد", "code": "420260323", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد عيد محمد يسن سعد"}, {"name": "محمد فوزى عربى على عبدالرحيم", "code": "420260315", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد فوزي عربي علي عبدالرحيم"}, {"name": "محمد محمود ابوالعباس جامع حسين", "code": "420261041", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد محمود ابوالعباس جامع حسين"}, {"name": "محمد مختار محمد احمد", "code": "420260845", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد مختار محمد احمد"}, {"name": "محمد مصطفى صلاح الدين محمد", "code": "420260735", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد مصطفي صلاح الدين محمد"}, {"name": "محمد مصطفى محمد السيد", "code": "420261682", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد مصطفي محمد السيد"}, {"name": "محمد مصطفى محمد هاشم امام", "code": "420261111", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد مصطفي محمد هاشم امام"}, {"name": "محمد نادر اسماعيل السيد احمد اسماعيل نصار", "code": "420261266", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد نادر اسماعيل السيد احمد اسماعيل نصار"}, {"name": "محمد هاشم صبحى عوض", "code": "420260897", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد هاشم صبحي عوض"}, {"name": "محمد هانى محمد جاد", "code": "420261142", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد هاني محمد جاد"}, {"name": "محمد هيثم احمد طه محمد حبش", "code": "420260135", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد هيثم احمد طه محمد حبش"}, {"name": "محمد وائل سعيد محمد محمد سعودي", "code": "420260796", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد وائل سعيد محمد محمد سعودي"}, {"name": "محمد وليد محمد أبوالمجد قشقوش", "code": "420261683", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد وليد محمد ابوالمجد قشقوش"}, {"name": "محمد ياسر سعيد علي ابو الحسن", "code": "420260097", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمد ياسر سعيد علي ابو الحسن"}, {"name": "محمود احمد السيد احمد العربى", "code": "420260596", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمود احمد السيد احمد العربي"}, {"name": "محمود اشرف السيد انور على كشكه", "code": "420260092", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمود اشرف السيد انور علي كشكه"}, {"name": "محمود اوساما احمد حسين", "code": "420260431", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمود اوساما احمد حسين"}, {"name": "محمود خالد احمد عرابى مرسى نصار", "code": "420260173", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمود خالد احمد عرابي مرسي نصار"}, {"name": "محمود صالح محمد محمد على", "code": "420260194", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمود صالح محمد محمد علي"}, {"name": "محمود عبدالعزيز عثمان حنفى عثمان", "code": "420260298", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمود عبدالعزيز عثمان حنفي عثمان"}, {"name": "محمود عطيه ابراهيم على شريف", "code": "420261658", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمود عطيه ابراهيم علي شريف"}, {"name": "محمود محمد سعيد محمد المكاس", "code": "420261239", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمود محمد سعيد محمد المكاس"}, {"name": "محمود محمد عبدالحافظ محمدالطويل", "code": "420260388", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمود محمد عبدالحافظ محمدالطويل"}, {"name": "محمود محمد محمود ابراهيم", "code": "420260573", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "محمود محمد محمود ابراهيم"}, {"name": "مدحت احمد كمال عمر زريق", "code": "420260381", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "مدحت احمد كمال عمر زريق"}, {"name": "مروان ابراهيم مصطفى السيد مصطفى", "code": "420261483", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "مروان ابراهيم مصطفي السيد مصطفي"}, {"name": "مروان حموده محمد على دسوقى", "code": "420261691", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "مروان حموده محمد علي دسوقي"}, {"name": "مروان طارق محمد عبدالوهاب السيد", "code": "420260222", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "مروان طارق محمد عبدالوهاب السيد"}, {"name": "مروان عمرو عطية عقل", "code": "420260779", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "مروان عمرو عطيه عقل"}, {"name": "مروان وليد عبد المنعم خليل", "code": "420261627", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "مروان وليد عبد المنعم خليل"}, {"name": "مريم ابراهيم عبدالحميد اباظه", "code": "420260118", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "مريم ابراهيم عبدالحميد اباظه"}, {"name": "مريم سالم محمد سالم محمد", "code": "420260682", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "مريم سالم محمد سالم محمد"}, {"name": "مريم سمير صبرى احمد عبدالرحيم", "code": "420261608", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "مريم سمير صبري احمد عبدالرحيم"}, {"name": "مريم سمير عبدالعزيز ابراهيم محمد", "code": "420260950", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "مريم سمير عبدالعزيز ابراهيم محمد"}, {"name": "مريم عرفات فتحى ماهر سالم", "code": "420260150", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "مريم عرفات فتحي ماهر سالم"}, {"name": "مريم محمد زكريا انور حسن", "code": "420261015", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "مريم محمد زكريا انور حسن"}, {"name": "مصطفى يحى جمال عبدالناصر درباله", "code": "420260550", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "مصطفي يحي جمال عبدالناصر درباله"}, {"name": "مصطفى احمد حسن محمد حسن", "code": "420260850", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "مصطفي احمد حسن محمد حسن"}, {"name": "مصطفى احمد محمد عبده عمران", "code": "420260575", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "مصطفي احمد محمد عبده عمران"}, {"name": "مصطفى ايمن محمد عبدالقادر هاشم", "code": "420260568", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "مصطفي ايمن محمد عبدالقادر هاشم"}, {"name": "مصطفى سعيد مصطفى احمد ناسه", "code": "420260231", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "مصطفي سعيد مصطفي احمد ناسه"}, {"name": "مصطفى سيد محمد سعيد", "code": "420260525", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "مصطفي سيد محمد سعيد"}, {"name": "مصطفى محمد محمود عبدالله الجوسقى", "code": "420260236", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "مصطفي محمد محمود عبدالله الجوسقي"}, {"name": "مصطفى محمود مخلص عطيه", "code": "420260276", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "مصطفي محمود مخلص عطيه"}, {"name": "مصطفى مدحت محمد منصور", "code": "420261248", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "مصطفي مدحت محمد منصور"}, {"name": "معاذ احمد محمد نبيل احمد عز الدين", "code": "420261734", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "معاذ احمد محمد نبيل احمد عز الدين"}, {"name": "معاذ مجدى فاروق عبدالعليم السيد", "code": "420260646", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "معاذ مجدي فاروق عبدالعليم السيد"}, {"name": "معاذ محمد سليمان مصرى", "code": "420260620", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "معاذ محمد سليمان مصري"}, {"name": "معاذ محمد فوزى سيد ابراهيم", "code": "420260171", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "معاذ محمد فوزي سيد ابراهيم"}, {"name": "معاذ محمد محمود محمد رضوان", "code": "420260571", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "معاذ محمد محمود محمد رضوان"}, {"name": "ملاك عماد ملاك منصور ملاك", "code": "420261428", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "ملاك عماد ملاك منصور ملاك"}, {"name": "ملك طلال سيد البدوى على عبده", "code": "420250816", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "ملك طلال سيد البدوي علي عبده"}, {"name": "ملك محمد اسعد عطا الحطاب", "code": "420260743", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "ملك محمد اسعد عطا الحطاب"}, {"name": "ملك محمد قنديل محمد", "code": "420260585", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "ملك محمد قنديل محمد"}, {"name": "منة الله وليد عوض زكى صديق", "code": "420260088", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "منه الله وليد عوض زكي صديق"}, {"name": "مهند طارق عبده سالم سلامه", "code": "420261480", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "مهند طارق عبده سالم سلامه"}, {"name": "مهند مجدى عزت محمد فرج", "code": "420260819", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "مهند مجدي عزت محمد فرج"}, {"name": "مهند محمد عبدالعزيز عطيه سليمان", "code": "420260309", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "مهند محمد عبدالعزيز عطيه سليمان"}, {"name": "مؤمن عاشور عبدالمؤمن محمود ابراهيم", "code": "420260407", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "مؤمن عاشور عبدالمؤمن محمود ابراهيم"}, {"name": "مؤمن محمد اسماعيل محمد", "code": "420261175", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "مؤمن محمد اسماعيل محمد"}, {"name": "مؤمن محمد مصطفى محمد على", "code": "420260449", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 4", "section_ar": "سيكشن 4", "norm_name": "مؤمن محمد مصطفي محمد علي"}, {"name": "ميخائيل اسعد زكى خليل", "code": "420260651", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "ميخائيل اسعد زكي خليل"}, {"name": "مينا اسامه ابراهيم سلامه منصور", "code": "420260144", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "مينا اسامه ابراهيم سلامه منصور"}, {"name": "مينا امير عدلى رياض خليل", "code": "420260192", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "مينا امير عدلي رياض خليل"}, {"name": "مينا جرجس محروس نصيف جرجس", "code": "420260021", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "مينا جرجس محروس نصيف جرجس"}, {"name": "مينا عاطف وهبه نجيب عبدالملك", "code": "420260018", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "مينا عاطف وهبه نجيب عبدالملك"}, {"name": "نبيل احمد نبيل حامد الطوخى", "code": "420261101", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "نبيل احمد نبيل حامد الطوخي"}, {"name": "ندى مقدام ابوالحجاج ابراهيم محمد", "code": "420260406", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "ندي مقدام ابوالحجاج ابراهيم محمد"}, {"name": "نور الله مصطفى عبدالتواب مصطفى عبدالتواب", "code": "420261773", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "نور الله مصطفي عبدالتواب مصطفي عبدالتواب"}, {"name": "نور صلاح الدين فرج احمد محمد", "code": "420260747", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "نور صلاح الدين فرج احمد محمد"}, {"name": "نورهان محمود محمود امين القاضى", "code": "420260426", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "نورهان محمود محمود امين القاضي"}, {"name": "نيرمين ابراهيم كريم مسعود حماد", "code": "420261794", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "نيرمين ابراهيم كريم مسعود حماد"}, {"name": "هاجر اشرف محمد محمد شوشه", "code": "420261395", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "هاجر اشرف محمد محمد شوشه"}, {"name": "هاجر محمد احمد احمد سيد احمد", "code": "420261491", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "هاجر محمد احمد احمد سيد احمد"}, {"name": "هاجر نبوت عبد الحميد عبد الرحيم", "code": "420260384", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "هاجر نبوت عبد الحميد عبد الرحيم"}, {"name": "هنا احمد محمد عبدالغفار عمر", "code": "420260027", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "هنا احمد محمد عبدالغفار عمر"}, {"name": "هنا توفيق محمد على محمود", "code": "420260240", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "هنا توفيق محمد علي محمود"}, {"name": "وليد احمد سيد احمد", "code": "420261875", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "وليد احمد سيد احمد"}, {"name": "ياسين حاتم على ابراهيم", "code": "420260936", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "ياسين حاتم علي ابراهيم"}, {"name": "ياسين خالد ثروت محمد عطيه مصطفى", "code": "420261690", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "ياسين خالد ثروت محمد عطيه مصطفي"}, {"name": "ياسين رمضان مصطفى عبدالباسط عوض", "code": "420261435", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "ياسين رمضان مصطفي عبدالباسط عوض"}, {"name": "ياسين محمد زكريا يوسف محمد", "code": "420260147", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "ياسين محمد زكريا يوسف محمد"}, {"name": "ياسين محمد عبد النبى سليم عبد الرحمن", "code": "420260011", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "ياسين محمد عبد النبي سليم عبد الرحمن"}, {"name": "ياسين وليد السيد محمد الغاوي", "code": "420261528", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "ياسين وليد السيد محمد الغاوي"}, {"name": "يحى حسام يحى عبدالعزيز البنا", "code": "420261016", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يحي حسام يحي عبدالعزيز البنا"}, {"name": "يحى محمد عبدالعزيز محمد محمود", "code": "420250633", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يحي محمد عبدالعزيز محمد محمود"}, {"name": "يوسف ابو دهب حلمى ابو دهب عبدالعال", "code": "420260576", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف ابو دهب حلمي ابو دهب عبدالعال"}, {"name": "يوسف احمد عبد الفتاح عبد الحليم باشا", "code": "420261245", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف احمد عبد الفتاح عبد الحليم باشا"}, {"name": "يوسف احمد عبدالسلام السيد السحيتي", "code": "420260154", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف احمد عبدالسلام السيد السحيتي"}, {"name": "يوسف احمد محمد ماجد محمد", "code": "420260265", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف احمد محمد ماجد محمد"}, {"name": "يوسف احمد محمود قطب", "code": "420261670", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف احمد محمود قطب"}, {"name": "يوسف اشرف منير على حمدي السكرى", "code": "420260255", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف اشرف منير علي حمدي السكري"}, {"name": "يوسف ايمن محمد محمد حافظ شوشه", "code": "420261040", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف ايمن محمد محمد حافظ شوشه"}, {"name": "يوسف حسينى السيد ابراهيم غنيم", "code": "420261007", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف حسيني السيد ابراهيم غنيم"}, {"name": "يوسف خالد محمود صبحى حافظ", "code": "420260036", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف خالد محمود صبحي حافظ"}, {"name": "يوسف روبي شعبان امام حسن", "code": "420260318", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف روبي شعبان امام حسن"}, {"name": "يوسف سعيد سيد بدر حسونه", "code": "420261468", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف سعيد سيد بدر حسونه"}, {"name": "يوسف صابر محمد احمد عبدالعال", "code": "420261451", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف صابر محمد احمد عبدالعال"}, {"name": "يوسف صموئيل عشم نجيب", "code": "420260644", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف صموئيل عشم نجيب"}, {"name": "يوسف عبدالرازق مصطفى محمد غانم", "code": "420260390", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف عبدالرازق مصطفي محمد غانم"}, {"name": "يوسف عبدالقوى فدار إبراهيم همام", "code": "420260285", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف عبدالقوي فدار ابراهيم همام"}, {"name": "يوسف عبدالله حسن محمد محمد", "code": "420260404", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف عبدالله حسن محمد محمد"}, {"name": "يوسف عبدالله عبدالعظيم عبدالسلام", "code": "420260696", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف عبدالله عبدالعظيم عبدالسلام"}, {"name": "يوسف عبدالناصر عبدالهادى على جاد", "code": "420261473", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف عبدالناصر عبدالهادي علي جاد"}, {"name": "يوسف عصام احمد ابراهيم عفيفى", "code": "420260081", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف عصام احمد ابراهيم عفيفي"}, {"name": "يوسف عصام جاهين جاهين ابراهيم", "code": "420260188", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف عصام جاهين جاهين ابراهيم"}, {"name": "يوسف علاء سعد خليل قابيل", "code": "420261581", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف علاء سعد خليل قابيل"}, {"name": "يوسف عماد احمد عبدالمجيد", "code": "420261633", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف عماد احمد عبدالمجيد"}, {"name": "يوسف عماد رجب عبدالعظيم عثمان", "code": "420260374", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف عماد رجب عبدالعظيم عثمان"}, {"name": "يوسف عمادالدين السعيد مصطفى ابراهيم", "code": "420261118", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف عمادالدين السعيد مصطفي ابراهيم"}, {"name": "يوسف عمرو مسعد شحاته محمد", "code": "420260745", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف عمرو مسعد شحاته محمد"}, {"name": "يوسف غانم عبد الكريم غانم", "code": "420260594", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف غانم عبد الكريم غانم"}, {"name": "يوسف كرم سليمان عقل صالح", "code": "420260812", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف كرم سليمان عقل صالح"}, {"name": "يوسف مجدى عبدالتواب قرنى", "code": "420261186", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف مجدي عبدالتواب قرني"}, {"name": "يوسف محمد احمد ابراهيم احمد", "code": "420260749", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف محمد احمد ابراهيم احمد"}, {"name": "يوسف محمد بدوى يوسف ابوشنب", "code": "420261369", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف محمد بدوي يوسف ابوشنب"}, {"name": "يوسف محمد حراجى على", "code": "420260886", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف محمد حراجي علي"}, {"name": "يوسف محمد راشد فؤاد حسن", "code": "420260707", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف محمد راشد فؤاد حسن"}, {"name": "يوسف محمد سمير شفيق محمود", "code": "420260997", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف محمد سمير شفيق محمود"}, {"name": "يوسف محمد عبد اللطيف عبد الرازق احمد", "code": "420260375", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف محمد عبد اللطيف عبد الرازق احمد"}, {"name": "يوسف محمد عبدالرحمن محمود", "code": "420260536", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف محمد عبدالرحمن محمود"}, {"name": "يوسف محمد عطيه محمد عبد العزيز", "code": "420260502", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف محمد عطيه محمد عبد العزيز"}, {"name": "يوسف محمد قرني علي", "code": "420260611", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف محمد قرني علي"}, {"name": "يوسف محمد مصلح فرج السيد", "code": "420260579", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف محمد مصلح فرج السيد"}, {"name": "يوسف محمد منصور السيد دياب", "code": "420260613", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف محمد منصور السيد دياب"}, {"name": "يوسف محمود السيد محمود الغريب", "code": "420261855", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف محمود السيد محمود الغريب"}, {"name": "يوسف ممدوح زكى ابراهيم محمد", "code": "420261583", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف ممدوح زكي ابراهيم محمد"}, {"name": "يوسف ممدوح يوسف زكا رزق", "code": "420260061", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف ممدوح يوسف زكا رزق"}, {"name": "يوسف موسى يوسف موسى مبارك", "code": "420261571", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف موسي يوسف موسي مبارك"}, {"name": "يوسف هانى محمود سعد محمد", "code": "420260825", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف هاني محمود سعد محمد"}, {"name": "يوسف ياسر عبدالعزيز نصرالله سلامه", "code": "420261659", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف ياسر عبدالعزيز نصرالله سلامه"}, {"name": "يوسف يوسف محمود صباح", "code": "420260277", "group": "G2", "group_ar": "المجموعة الثانية (G2)", "section": "Sec 6", "section_ar": "سيكشن 6", "norm_name": "يوسف يوسف محمود صباح"}];
+    const MASTER_SCHEDULE = {"Sunday": {"day_ar": "الأحد", "items": [{"time": "09:00 - 11:00", "subject": "لغة إنجليزية (1) - English Language (1)", "type": "محاضرة", "instructor": "د. زينب عبد الرشيد", "room": "مدرج 4 (Room 4)", "secs": ["Sec 1", "Sec 2", "Sec 3", "Sec 4", "Sec 5", "Sec 6"], "badge": "lec"}, {"time": "11:00 - 01:00", "subject": "أساسيات علوم الحاسب - CS Fundamentals", "type": "محاضرة", "instructor": "د. هيام عبد المرضي", "room": "مدرج 7 (Room 7)", "secs": ["Sec 1", "Sec 3", "Sec 5"], "badge": "lec"}, {"time": "01:00 - 02:00", "subject": "إدارة أعمال - Business Administration", "type": "سكشن", "instructor": "أ. رنا صبري", "room": "مدرج 7 (Room 7)", "secs": ["Sec 1", "Sec 3", "Sec 5"], "badge": "sec"}, {"time": "02:00 - 04:00", "subject": "أساسيات علوم الحاسب - CS Fundamentals", "type": "محاضرة", "instructor": "د. هيام عبد المرضي", "room": "مدرج 7 (Room 7)", "secs": ["Sec 2", "Sec 4", "Sec 6"], "badge": "lec"}, {"time": "04:00 - 04:30", "subject": "إدارة أعمال - Business Administration", "type": "سكشن", "instructor": "أ. رنا صبري", "room": "مدرج 7 (Room 7)", "secs": ["Sec 2", "Sec 4", "Sec 6"], "badge": "sec"}]}, "Monday": {"day_ar": "الاثنين", "items": [{"time": "11:00 - 01:00", "subject": "أساسيات علوم الحاسب - CS Fundamentals", "type": "سكشن عملي", "instructor": "م. أحمد مجدي", "room": "معمل 2 (Lab 2)", "secs": ["Sec 2"], "badge": "lab"}, {"time": "11:00 - 01:00", "subject": "برمجة هيكلية - Structured Programming", "type": "سكشن عملي", "instructor": "م. فدوى عاطف", "room": "معمل 9 (Lab 9)", "secs": ["Sec 4"], "badge": "lab"}, {"time": "02:00 - 04:00", "subject": "أساسيات علوم الحاسب - CS Fundamentals", "type": "سكشن عملي", "instructor": "م. أحمد مجدي", "room": "معمل 2 (Lab 2)", "secs": ["Sec 3"], "badge": "lab"}, {"time": "02:00 - 04:00", "subject": "برمجة هيكلية - Structured Programming", "type": "سكشن عملي", "instructor": "م. فدوى عاطف", "room": "معمل 9 (Lab 9)", "secs": ["Sec 1"], "badge": "lab"}]}, "Tuesday": {"day_ar": "الثلاثاء", "items": [{"time": "09:00 - 11:00", "subject": "برمجة هيكلية - Structured Programming", "type": "محاضرة", "instructor": "د. أسامة حلمي", "room": "مدرج 7 (Room 7)", "secs": ["Sec 1", "Sec 3", "Sec 5"], "badge": "lec"}, {"time": "09:00 - 11:00", "subject": "أساسيات علوم الحاسب - CS Fundamentals", "type": "سكشن عملي", "instructor": "م. أحمد مجدي", "room": "معمل 9 (Lab 9)", "secs": ["Sec 4"], "badge": "lab"}, {"time": "09:00 - 11:00", "subject": "برمجة هيكلية - Structured Programming", "type": "سكشن عملي", "instructor": "م. فدوى عاطف", "room": "معمل 2 (Lab 2)", "secs": ["Sec 6"], "badge": "lab"}, {"time": "12:00 - 02:00", "subject": "أساسيات حاسب (مايكروسوفت) - CS (Microsoft)", "type": "سكشن عملي", "instructor": "مدرب مايكروسوفت", "room": "قاعة 17 (Room 17)", "secs": ["Sec 6"], "badge": "lab"}, {"time": "12:00 - 02:00", "subject": "أساسيات علوم الحاسب - CS Fundamentals", "type": "سكشن عملي", "instructor": "م. أحمد مجدي", "room": "معمل 9 (Lab 9)", "secs": ["Sec 5"], "badge": "lab"}, {"time": "12:00 - 02:00", "subject": "برمجة هيكلية - Structured Programming", "type": "سكشن عملي", "instructor": "م. فدوى عاطف", "room": "معمل 2 (Lab 2)", "secs": ["Sec 3"], "badge": "lab"}, {"time": "03:00 - 04:30", "subject": "برمجة هيكلية - Structured Programming", "type": "محاضرة", "instructor": "د. أسامة حلمي", "room": "مدرج 7 (Room 7)", "secs": ["Sec 2", "Sec 4", "Sec 6"], "badge": "lec"}]}, "Wednesday": {"day_ar": "الأربعاء", "items": [{"time": "09:00 - 11:00", "subject": "فيزياء - Physics", "type": "محاضرة", "instructor": "د. نانسي عبد العظيم", "room": "مدرج 7 (Room 7)", "secs": ["Sec 2", "Sec 4", "Sec 6"], "badge": "lec"}, {"time": "09:00 - 11:00", "subject": "أساسيات علوم الحاسب - CS Fundamentals", "type": "سكشن عملي", "instructor": "م. أحمد مجدي", "room": "معمل 2 (Lab 2)", "secs": ["Sec 1"], "badge": "lab"}, {"time": "09:00 - 11:00", "subject": "برمجة هيكلية - Structured Programming", "type": "سكشن عملي", "instructor": "م. فدوى عاطف", "room": "معمل 9 (Lab 9)", "secs": ["Sec 5"], "badge": "lab"}, {"time": "09:00 - 11:00", "subject": "فيزياء - Physics", "type": "سكشن عملي", "instructor": "م. أشرف جاد", "room": "قاعة 5 (Room 5)", "secs": ["Sec 3"], "badge": "lab"}, {"time": "11:00 - 01:00", "subject": "فيزياء - Physics", "type": "سكشن عملي", "instructor": "م. أشرف جاد", "room": "قاعة 5 (Room 5)", "secs": ["Sec 4"], "badge": "lab"}, {"time": "12:00 - 02:00", "subject": "فيزياء - Physics", "type": "محاضرة", "instructor": "د. نانسي عبد العظيم", "room": "مدرج 7 (Room 7)", "secs": ["Sec 1", "Sec 3", "Sec 5"], "badge": "lec"}, {"time": "12:00 - 02:00", "subject": "أساسيات علوم الحاسب - CS Fundamentals", "type": "سكشن عملي", "instructor": "م. أحمد مجدي", "room": "معمل 2 (Lab 2)", "secs": ["Sec 6"], "badge": "lab"}, {"time": "12:00 - 02:00", "subject": "برمجة هيكلية - Structured Programming", "type": "سكشن عملي", "instructor": "م. فدوى عاطف", "room": "معمل 9 (Lab 9)", "secs": ["Sec 2"], "badge": "lab"}, {"time": "02:00 - 04:00", "subject": "تفاضل وتكامل - Calculus", "type": "سكشن", "instructor": "م. أحمد عبد المعطي", "room": "مدرج 7 (Room 7)", "secs": ["Sec 1", "Sec 3", "Sec 5"], "badge": "sec"}, {"time": "03:00 - 04:00", "subject": "فيزياء - Physics", "type": "سكشن عملي", "instructor": "م. أشرف جاد", "room": "قاعة 5 (Room 5)", "secs": ["Sec 2"], "badge": "lab"}]}, "Thursday": {"day_ar": "الخميس", "items": [{"time": "09:00 - 11:00", "subject": "تفاضل وتكامل - Calculus", "type": "محاضرة", "instructor": "د. محمد الشحات", "room": "مدرج 7 (Room 7)", "secs": ["Sec 2", "Sec 4", "Sec 6"], "badge": "lec"}, {"time": "09:00 - 11:00", "subject": "فيزياء - Physics", "type": "سكشن عملي", "instructor": "م. أشرف جاد", "room": "قاعة 5 (Room 5)", "secs": ["Sec 5"], "badge": "lab"}, {"time": "09:00 - 11:00", "subject": "أساسيات حاسب (مايكروسوفت) - CS (Microsoft)", "type": "سكشن عملي", "instructor": "مدرب مايكروسوفت", "room": "قاعة 16 (Room 16)", "secs": ["Sec 1"], "badge": "lab"}, {"time": "09:00 - 11:00", "subject": "أساسيات حاسب (مايكروسوفت) - CS (Microsoft)", "type": "سكشن عملي", "instructor": "مدرب مايكروسوفت", "room": "قاعة 17 (Room 17)", "secs": ["Sec 3"], "badge": "lab"}, {"time": "11:00 - 01:00", "subject": "تفاضل وتكامل - Calculus", "type": "محاضرة", "instructor": "د. محمد الشحات", "room": "مدرج 7 (Room 7)", "secs": ["Sec 1", "Sec 3", "Sec 5"], "badge": "lec"}, {"time": "11:00 - 01:00", "subject": "فيزياء - Physics", "type": "سكشن عملي", "instructor": "م. أشرف جاد", "room": "قاعة 5 (Room 5)", "secs": ["Sec 6"], "badge": "lab"}, {"time": "11:00 - 01:00", "subject": "أساسيات حاسب (مايكروسوفت) - CS (Microsoft)", "type": "سكشن عملي", "instructor": "مدرب مايكروسوفت", "room": "قاعة 16 (Room 16)", "secs": ["Sec 2"], "badge": "lab"}, {"time": "11:00 - 01:00", "subject": "أساسيات حاسب (مايكروسوفت) - CS (Microsoft)", "type": "سكشن عملي", "instructor": "مدرب مايكروسوفت", "room": "قاعة 17 (Room 17)", "secs": ["Sec 4"], "badge": "lab"}, {"time": "01:00 - 02:00", "subject": "إدارة أعمال - Business Administration", "type": "محاضرة عامة", "instructor": "د. محمد عبد الحسيب", "room": "مدرج فؤاد حبيب (Fouad Habib Hall)", "secs": ["Sec 1", "Sec 2", "Sec 3", "Sec 4", "Sec 5", "Sec 6"], "badge": "lec"}, {"time": "03:00 - 04:00", "subject": "تفاضل وتكامل - Calculus", "type": "سكشن", "instructor": "م. أحمد عبد المعطي", "room": "مدرج 7 (Room 7)", "secs": ["Sec 2", "Sec 4", "Sec 6"], "badge": "sec"}, {"time": "03:00 - 04:00", "subject": "فيزياء - Physics", "type": "سكشن عملي", "instructor": "م. أشرف جاد", "room": "قاعة 5 (Room 5)", "secs": ["Sec 1"], "badge": "lab"}, {"time": "03:00 - 04:00", "subject": "أساسيات حاسب (مايكروسوفت) - CS (Microsoft)", "type": "سكشن عملي", "instructor": "مدرب مايكروسوفت", "room": "قاعة 16 (Room 16)", "secs": ["Sec 5"], "badge": "lab"}]}};
+
+    let currentSelectedStudent = null;
+    let currentScheduleFilter = 'ALL';
+
+    // Theme Management
+    function initTheme() {
+      const savedTheme = localStorage.getItem('cs_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      updateThemeBtn(savedTheme);
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const target = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', target);
+      localStorage.setItem('cs_theme', target);
+      updateThemeBtn(target);
+    }
+
+    function updateThemeBtn(theme) {
+      const icon = document.getElementById('themeIcon');
+      const text = document.getElementById('themeText');
+      if (theme === 'dark') {
+        icon.textContent = '☀️';
+        text.textContent = 'الوضع النهاري';
+      } else {
+        icon.textContent = '🌙';
+        text.textContent = 'الوضع الليلي';
+      }
+    }
+
+    // Arabic String Normalization for forgiving, intelligent search
+    function normalizeArabic(text) {
+      if (!text) return '';
+      return text
+        .replace(/[ً-ٰٟ]/g, '') // remove diacritics
+        .replace(/[أإآاٱ]/g, 'ا')
+        .replace(/[يى]/g, 'ي')
+        .replace(/[ةه]/g, 'ه')
+        .replace(/لا|لأ|لإ|لآ/g, 'لا')
+        .replace(/عبد\s+/g, 'عبد') // handle عبد الله vs عبدالله
+        .replace(/[^\w\s؀-ۿ]/g, '')
+        .toLowerCase()
+        .trim();
+    }
+
+    // Search Engine
+    function searchStudents(query) {
+      query = query.trim();
+      if (!query) return [];
+
+      // If query is digits, search by code prefix or exact
+      const digitsOnly = query.replace(/[^0-9]/g, '');
+      if (digitsOnly.length >= 2) {
+        return ALL_STUDENTS.filter(s => s.code.includes(digitsOnly));
+      }
+
+      // Otherwise search by normalized name tokens
+      const normQuery = normalizeArabic(query);
+      const queryTokens = normQuery.split(/\s+/).filter(t => t.length > 0);
+
+      return ALL_STUDENTS.filter(s => {
+        const normName = normalizeArabic(s.name);
+        return queryTokens.every(token => normName.includes(token));
+      });
+    }
+
+    // Input handlers & suggestions
+    const searchInput = document.getElementById('searchInput');
+    const clearBtn = document.getElementById('clearBtn');
+    const suggestionsList = document.getElementById('suggestionsList');
+
+    searchInput.addEventListener('input', function() {
+      const val = this.value;
+      clearBtn.style.display = val.length > 0 ? 'block' : 'none';
+
+      if (val.trim().length >= 2) {
+        const matches = searchStudents(val);
+        renderSuggestions(matches.slice(0, 8));
+      } else {
+        suggestionsList.style.display = 'none';
+      }
+    });
+
+    searchInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        suggestionsList.style.display = 'none';
+        executeSearch();
+      } else if (e.key === 'Escape') {
+        suggestionsList.style.display = 'none';
+      }
+    });
+
+    // Hide suggestions on outside click
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-input-wrap')) {
+        suggestionsList.style.display = 'none';
+      }
+    });
+
+    function renderSuggestions(matches) {
+      if (matches.length === 0) {
+        suggestionsList.style.display = 'none';
+        return;
+      }
+
+      suggestionsList.innerHTML = matches.map(s => `
+        <li class="suggestion-item" onclick="selectStudentByCode('${s.code}')">
+          <div class="suggestion-name">${s.name}</div>
+          <div class="suggestion-meta">
+            <span class="suggestion-code">${s.code}</span>
+            <span>•</span>
+            <span style="color: var(--accent); font-weight: 700;">${s.section_ar}</span>
+            <span>•</span>
+            <span>${s.group}</span>
+          </div>
+        </li>
+      `).join('');
+      suggestionsList.style.display = 'block';
+    }
+
+    function clearSearch() {
+      searchInput.value = '';
+      clearBtn.style.display = 'none';
+      suggestionsList.style.display = 'none';
+      document.getElementById('studentResultSection').style.display = 'none';
+      document.getElementById('multiResultsSection').style.display = 'none';
+      document.getElementById('notFoundBox').style.display = 'none';
+      searchInput.focus();
+    }
+
+    function quickFill(val) {
+      searchInput.value = val;
+      clearBtn.style.display = 'block';
+      executeSearch();
+    }
+
+    function executeSearch() {
+      const query = searchInput.value.trim();
+      suggestionsList.style.display = 'none';
+
+      if (!query) {
+        showToast('⚠️ يرجى إدخال اسم الطالب أو كود الطالب أولاً', 'error');
+        searchInput.focus();
+        return;
+      }
+
+      const matches = searchStudents(query);
+
+      const notFoundBox = document.getElementById('notFoundBox');
+      const studentResultSection = document.getElementById('studentResultSection');
+      const multiResultsSection = document.getElementById('multiResultsSection');
+
+      if (matches.length === 0) {
+        studentResultSection.style.display = 'none';
+        multiResultsSection.style.display = 'none';
+        notFoundBox.style.display = 'block';
+        document.getElementById('notFoundTitle').textContent = `لم يتم العثور على طالب يطابق: "${query}"`;
+        notFoundBox.scrollIntoView({ behavior: 'smooth' });
+      } else if (matches.length === 1) {
+        notFoundBox.style.display = 'none';
+        multiResultsSection.style.display = 'none';
+        displaySingleStudent(matches[0]);
+      } else {
+        notFoundBox.style.display = 'none';
+        // If an exact code match exists among the results, select it directly
+        const exactCode = matches.find(s => s.code === query);
+        if (exactCode) {
+          multiResultsSection.style.display = 'none';
+          displaySingleStudent(exactCode);
+        } else {
+          studentResultSection.style.display = 'none';
+          displayMultiResults(matches);
+        }
+      }
+    }
+
+    function selectStudentByCode(code) {
+      const student = ALL_STUDENTS.find(s => s.code === code);
+      if (student) {
+        searchInput.value = student.name;
+        suggestionsList.style.display = 'none';
+        document.getElementById('notFoundBox').style.display = 'none';
+        document.getElementById('multiResultsSection').style.display = 'none';
+        displaySingleStudent(student);
+      }
+    }
+
+    function displayMultiResults(matches) {
+      const multiResultsSection = document.getElementById('multiResultsSection');
+      const multiCount = document.getElementById('multiCount');
+      const multiResultsBody = document.getElementById('multiResultsBody');
+
+      multiCount.textContent = matches.length;
+      multiResultsBody.innerHTML = matches.map(s => `
+        <tr>
+          <td style="font-weight: 700;">${s.name}</td>
+          <td><span style="font-family: monospace; font-weight: 700;">${s.code}</span></td>
+          <td><span class="type-pill" style="${s.group === 'G1' ? 'background: var(--g1-bg); color: var(--g1-color);' : 'background: var(--g2-bg); color: var(--g2-color);'}">${s.group_ar}</span></td>
+          <td><span class="type-pill" style="background: var(--sec-bg); color: var(--sec-color);">${s.section_ar}</span></td>
+          <td>
+            <button class="select-student-btn" onclick="selectStudentByCode('${s.code}')">عرض البطاقة والجدول</button>
+          </td>
+        </tr>
+      `).join('');
+
+      multiResultsSection.style.display = 'block';
+      multiResultsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function displaySingleStudent(student) {
+      currentSelectedStudent = student;
+      const studentResultSection = document.getElementById('studentResultSection');
+
+      // Populate Card
+      document.getElementById('cardStudentName').textContent = student.name;
+      document.getElementById('cardStudentCode').textContent = student.code;
+      document.getElementById('cardGroupValue').textContent = student.group_ar;
+      document.getElementById('cardSecValue').textContent = student.section_ar;
+
+      const cardGroupBox = document.getElementById('cardGroupBox');
+      const cardGroupSub = document.getElementById('cardGroupSub');
+      if (student.group === 'G1') {
+        cardGroupBox.className = 'assignment-box group-box';
+        cardGroupSub.textContent = 'محاضرات مدرج 7 ومدرج 4 ومدرج فؤاد حبيب';
+      } else {
+        cardGroupBox.className = 'assignment-box group-box is-g2';
+        cardGroupSub.textContent = 'محاضرات مدرج 7 ومدرج 4 ومدرج فؤاد حبيب';
+      }
+
+      // Populate Personalized Schedule
+      renderStudentSchedule(student);
+
+      studentResultSection.style.display = 'block';
+      studentResultSection.scrollIntoView({ behavior: 'smooth' });
+      showToast(`تم عرض بيانات الطالب: ${student.name}`, 'success');
+    }
+
+    // Render Personalized Schedule
+    function renderStudentSchedule(student) {
+      const container = document.getElementById('scheduleItemsContainer');
+      const sec = student.section; // e.g. "Sec 1"
+
+      document.getElementById('scheduleTitle').textContent = `📅 جدول المحاضرات والسكاشن الخاص بالطالب: ${student.name} (${student.section_ar} - ${student.group})`;
+
+      let items = [];
+      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday'];
+
+      days.forEach(dKey => {
+        if (currentScheduleFilter !== 'ALL' && currentScheduleFilter !== dKey) return;
+        const dayData = MASTER_SCHEDULE[dKey];
+        dayData.items.forEach(item => {
+          if (item.secs.includes(sec)) {
+            items.push({
+              dayAr: dayData.day_ar,
+              ...item
+            });
+          }
+        });
+      });
+
+      if (items.length === 0) {
+        container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 24px; color: var(--text-muted);">لا توجد محاضرات أو سكاشن مجدولة في هذا اليوم.</div>`;
+        return;
+      }
+
+      container.innerHTML = items.map(item => `
+        <div class="schedule-item badge-${item.badge}">
+          <div class="item-top">
+            <span class="item-day">${item.dayAr}</span>
+            <span class="item-time">${item.time}</span>
+          </div>
+          <div class="item-subject">${item.subject}</div>
+          <div class="item-meta">
+            <div class="item-meta-row">
+              <span class="type-pill">${item.type}</span>
+              <span style="font-weight: 600; color: var(--text);">${item.room}</span>
+            </div>
+            <div class="item-meta-row">
+              <span>👨‍🏫 المحاضر/المعيد:</span>
+              <span style="font-weight: 600;">${item.instructor}</span>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterSchedule(day) {
+      currentScheduleFilter = day;
+      const tabs = document.querySelectorAll('#dayFilterTabs .day-tab');
+      tabs.forEach(t => t.classList.remove('active'));
+      event.target.classList.add('active');
+
+      if (currentSelectedStudent) {
+        renderStudentSchedule(currentSelectedStudent);
+      }
+    }
+
+    // Directory list viewer
+    function showSectionDirectory(secFilter) {
+      const pills = document.querySelectorAll('#sectionPills .sec-filter-btn');
+      pills.forEach(p => p.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const card = document.getElementById('directoryListCard');
+      const title = document.getElementById('directoryListTitle');
+      const body = document.getElementById('directoryTableBody');
+
+      let list = [];
+      if (secFilter === 'ALL') {
+        list = ALL_STUDENTS;
+        title.textContent = `قائمة جميع طلاب الفرقة الأولى (${ALL_STUDENTS.length} طالب)`;
+      } else {
+        list = ALL_STUDENTS.filter(s => s.section === secFilter);
+        const secNum = secFilter.replace('Sec ', '');
+        title.textContent = `قائمة طلاب سيكشن ${secNum} (${list.length} طالب)`;
+      }
+
+      body.innerHTML = list.map((s, idx) => `
+        <tr>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">${idx + 1}</td>
+          <td style="font-weight: 700;">${s.name}</td>
+          <td><span style="font-family: monospace; font-weight: 700;">${s.code}</span></td>
+          <td><span class="type-pill" style="${s.group === 'G1' ? 'background: var(--g1-bg); color: var(--g1-color);' : 'background: var(--g2-bg); color: var(--g2-color);'}">${s.group_ar}</span></td>
+          <td><span class="type-pill" style="background: var(--sec-bg); color: var(--sec-color);">${s.section_ar}</span></td>
+          <td>
+            <button class="select-student-btn" onclick="selectStudentByCode('${s.code}')">عرض البطاقة</button>
+          </td>
+        </tr>
+      `).join('');
+
+      card.style.display = 'block';
+      card.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Copy Utilities
+    function copyCode() {
+      if (!currentSelectedStudent) return;
+      navigator.clipboard.writeText(currentSelectedStudent.code).then(() => {
+        showToast(`تم نسخ الكود الأكاديمي: ${currentSelectedStudent.code}`, 'success');
+      });
+    }
+
+    function copyFullData() {
+      if (!currentSelectedStudent) return;
+      const text = `بيانات الطالب - معهد المستقبل العالي (الفرقة الأولى علوم حاسب):
+الاسم: ${currentSelectedStudent.name}
+كود الطالب: ${currentSelectedStudent.code}
+المجموعة (الجروب): ${currentSelectedStudent.group_ar}
+السيكشن: ${currentSelectedStudent.section_ar}`;
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('تم نسخ بيانات الطالب بنجاح!', 'success');
+      });
+    }
+
+    // Toast function
+    function showToast(msg, type = 'success') {
+      const toast = document.getElementById('toastBox');
+      const toastMsg = document.getElementById('toastMsg');
+      const toastIcon = document.getElementById('toastIcon');
+
+      toastMsg.textContent = msg;
+      toastIcon.textContent = type === 'error' ? '⚠️' : '✅';
+      toast.classList.add('show');
+
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3200);
+    }
+
+    // Initialize on load
+    window.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+    });
+  </script>
+</body>
+</html>
